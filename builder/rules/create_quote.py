@@ -1,4 +1,4 @@
-from builder.rules.rule import Rule
+from builder.rules import Rule
 
 
 class CreateQuote(Rule):
