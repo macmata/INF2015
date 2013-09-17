@@ -15,4 +15,6 @@ input_file = args.input[0]
 output_file = args.output[0]
 
 q = Quote(None, None)
-print(q.build_quote())
+q.build_quote()
+
+print q.montant

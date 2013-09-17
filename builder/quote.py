@@ -4,6 +4,7 @@ from heapq import heappush, heappop
 
 from builder import rules
 from builder.rules.rule import Rule
+from builder.exceptions import NotAllowed
 
 
 class Quote(object):
@@ -24,8 +25,10 @@ class Quote(object):
                     heappush(self.rules, (priority, rule))
 
     def build_quote(self):
-        for _, rule in self.rules:
-            rule.apply_rules()
+        try:
+            for _, rule in self.rules:
+                rule.apply_rules()
+        except NotAllowed:
+            self.montant = None
 
-        return self.montant
 
