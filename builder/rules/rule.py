@@ -5,4 +5,4 @@ class Rule(object):
     def apply_rules(self):
         for module in dir(self):
             if module.startswith('rule_'):
-                self.quote = getattr(self, module)()
+                getattr(self, module)()
