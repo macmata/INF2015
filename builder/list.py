@@ -1,5 +1,5 @@
 
-class List(object):
+class List (object):
 
     def get_list_price(self):
         list_price = [] 
@@ -33,9 +33,6 @@ class List(object):
         list_price.append([2014,"Porsche","Cayenne S",77000])
         list_price.append([2014,"Porsche","Cayenne S Hybride",82000])
         list_price.append([2014,"Porsche","Cayenne GTS",96000])
-        list_price.append([2014,Porsche,Cayenne Turbo,125000])
-        list_price.append([2014,Porsche,Cayenne Turbo S,169000])
+        list_price.append([2014,"Porsche","Cayenne Turbo",125000])
+        list_price.append([2014,"Porsche","Cayenne Turbo S",169000])
         return list_price
-
-a= get_list_prince()
-print(a)
