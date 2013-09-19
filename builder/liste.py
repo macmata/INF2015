@@ -1,4 +1,3 @@
-from builder import load 
 
 def get_list_price():
     list_price = [] 
