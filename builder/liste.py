@@ -1,3 +1,5 @@
+from builder import load 
+
 def get_list_price():
     list_price = [] 
     list_price.append([2014,"Porsche","Boxter",60000])
@@ -33,3 +35,14 @@ def get_list_price():
     list_price.append([2014,"Porsche","Cayenne Turbo",125000])
     list_price.append([2014,"Porsche","Cayenne Turbo S",169000])
     return list_price
+
+def find_car(car):
+    data = get_list_price()
+    for i in data:
+        if i[0] == car.annee:
+            if i[1] == car.marque:
+                if i[2] == car.modele:
+                    price = (i[3])         
+        else:
+            price = 0            
+    return price
