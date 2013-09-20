@@ -1,6 +1,6 @@
 
 import json
-from builder import voiture,conducteur
+from builder import voiture,conducteur,contrat
 
 def load_file(input_file):
     json_data = open(input_file)
@@ -32,8 +32,15 @@ def extract_data_driver(input_file):
     driver.premier_contrat = data["conducteur"]["premier_contrat"]
     return driver
 
+def extract_data_contrat(input_file):
+    un_contrat = contrat.Contrat()
+    data = load_file(input_file)
+    un_contrat.duree =data["duree_contrat"]
+    return un_contrat
+
 def extract_data_all(input_file):
     driver = extract_data_driver(input_file)
     car = extract_data_car(input_file)
-    return car,driver
+    contrat = extract_data_contrat(input_file)
+    return car,driver,contrat
 

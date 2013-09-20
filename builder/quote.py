@@ -8,9 +8,10 @@ from builder.exceptions import NotAllowed
 
 
 class Quote(object):
-    def __init__(self, voiture, conducteur):
+    def __init__(self, voiture, conducteur,contrat):
         self.voiture = voiture
         self.conducteur = conducteur
+        self.contrat = contrat
         self.montant = 0
 
         self.rules = []

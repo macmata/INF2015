@@ -14,8 +14,8 @@ args = parser.parse_args()
 input_file = args.input[0]
 output_file = args.output[0]
 
-car,driver = load.extract_data_all(input_file)
-q = Quote(car, driver)
+car,driver,contrat = load.extract_data_all(input_file)
+q = Quote(car, driver,contrat)
 q.build_quote()
 
 print (q.montant)

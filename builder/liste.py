@@ -53,6 +53,7 @@ def get_date_naissance(conducteur,x):
 def older_then_x(conducteur,x):
     someday = get_date_naissance(conducteur,x)
     today = date.today()
+    print(someday,today)
     return someday <= today
 
 def too_old(conducteur,x):
