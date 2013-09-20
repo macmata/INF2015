@@ -7,25 +7,27 @@ class Allowed(Rule):
 
     def rule_1(self):
         price = liste.find_car(self.quote.voiture)
-        if price == None:
-            raise NotAllowed()
+        if price != 0:
+            self.quote.mantant = price
         else:
-            self.quote.montant = price
-            print (price)
+            print("Car not on the list")
+            raise NotAllowed()
 
     def rule_2(self):
-        is_living_here = liste.live_in_quebec(self.quote.conducteur)
-              
+        if liste.live_in_quebec(self.quote.conducteur)==False:
+            print("Don't live in Quebec")
+            raise NotAllowed()
 
-    def age_ok(self):
+    def rule_3(self):
         if self.quote.conducteur.sexe == 'M':
-            if liste.older_then_x(conducteur,25) == False:
+            if liste.older_then_x(self.quote.conducteur,25) == False:
+                print("Men to young")
                 raise NotAllowed()
         else:
-            if liste.older_then_x(conducteur,21) == False:
+            if liste.older_then_x(self.quote.conducteur,21) == False:
+                print("Girl to young")
                 raise NotAllowed()
-        if liste.too_old(conducteur,75) == True:
+        if liste.too_old(self.quote.conducteur,75) == True:
+                print ("Too old")
                 raise NotAllowed()
-    
-    def rule_4(self):    
-        pass
+             
