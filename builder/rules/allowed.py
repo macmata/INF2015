@@ -12,14 +12,20 @@ class Allowed(Rule):
         else:
             self.quote.montant = price
             print (price)
+
     def rule_2(self):
         is_living_here = liste.live_in_quebec(self.quote.conducteur)
               
 
-    def rule_3(self):
-        is_older_than_x = liste.man_older_then_x(self.quote.conducteur,25)
-        if is_older_than_x == False:
-            raise NotAllowed()
+    def age_ok(self):
+        if self.quote.conducteur.sexe == 'M':
+            if liste.older_then_x(conducteur,25) == False:
+                raise NotAllowed()
+        else:
+            if liste.older_then_x(conducteur,21) == False:
+                raise NotAllowed()
+        if liste.too_old(conducteur,75) == True:
+                raise NotAllowed()
     
     def rule_4(self):    
         pass
