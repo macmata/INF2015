@@ -8,7 +8,7 @@ class Allowed(Rule):
     def rule_1(self):
         price = liste.find_car(self.quote.voiture)
         if price != 0:
-            self.quote.mantant = price
+            self.quote.montant = price
         else:
             print("Car not on the list")
             raise NotAllowed()
