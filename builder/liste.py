@@ -1,4 +1,4 @@
-
+from datetime import datetime,date
 def get_list_price():
     list_price = [] 
     list_price.append([2014,"Porsche","Boxter",60000])
@@ -42,3 +42,17 @@ def find_car(car):
         if i[0] == car.annee and i[1] == car.marque and i[2] == car.modele:
                 price = (i[3])         
     return price
+
+def live_in_quebec(conducteur):
+    return conducteur.province == "Québec"
+        
+def man_older_then_x(conducteur,x):
+    date_naissance_string = conducteur.date_de_naissance    
+    date_naissance = datetime.strptime(date_naissance_string, "%Y-%m-%d")
+    someday = date(date_naissance.year+x,date_naissance.month,date_naissance.day)
+    today = date.today()
+    is_older = (someday >= today) 
+    return is_older
+
+
+
