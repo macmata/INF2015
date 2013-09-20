@@ -35,5 +35,5 @@ def extract_data_driver(input_file):
 def extract_data_all(input_file):
     driver = extract_data_driver(input_file)
     car = extract_data_car(input_file)
-    return {car,driver}
+    return car,driver
 
