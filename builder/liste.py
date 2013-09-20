@@ -37,7 +37,7 @@ def get_list_price():
 
 def find_car(car):
     data = get_list_price()
-    price 0
+    price = 0
     for i in data:
         if i[0] == car.annee and i[1] == car.marque and i[2] == car.modele:
                 price = (i[3])         
