@@ -46,18 +46,34 @@ def find_car(car):
 def live_in_quebec(conducteur):
     return conducteur.province == "Québec"
 
-def get_date_naissance(conducteur,x):
+def get_date_naissance(conducteur):
     date_naissance = datetime.strptime(conducteur.date_de_naissance,"%Y-%m-%d")
-    return date(date_naissance.year+x,date_naissance.month,date_naissance.day)
+    return date(date_naissance.year,date_naissance.month,date_naissance.day)
 
 def older_then_x(conducteur,x):
-    someday = get_date_naissance(conducteur,x)
+    someday = get_date_naissance(conducteur)
     today = date.today()
-    print(someday,today)
-    return someday <= today
+    if today.year-x < someday.year:
+        return False 
+    if today.year-x == someday.year:
+        if today.month > someday.month:
+            return False
+        if today.month == someday.month:
+            if today.day > someday.day:
+                return False 
+    return True
 
 def too_old(conducteur,x):
-    someday = get_date_naissance(conducteur,x)
+    someday = get_date_naissance(conducteur)
     today = date.today()
-    print (someday,today)
-    return someday <= today
+    if today.year-x > someday.year:
+        return True
+    if today.year-x == someday.year:
+        if today.month < someday.month:
+            return True
+        if today.month == someday.month:
+            if today.day <= someday.day:
+                return True 
+    return False
+
+
