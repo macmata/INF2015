@@ -50,8 +50,25 @@ def get_date_naissance(conducteur):
     date_naissance = datetime.strptime(conducteur.date_de_naissance,"%Y-%m-%d")
     return date(date_naissance.year,date_naissance.month,date_naissance.day)
 
+def get_date_fin_cour(conducteur):
+    date_fin = datetime.strptime(conducteur.date_fin_cours_de_conduite,"%Y-%m-%d")
+    return date(date_fin.year,date_fin.month,date_fin.day)
+
 def older_then_x(conducteur,x):
     someday = get_date_naissance(conducteur)
+    today = date.today()
+    if today.year-x < someday.year:
+        return False 
+    if today.year-x == someday.year:
+        if today.month > someday.month:
+            return False
+        if today.month == someday.month:
+            if today.day > someday.day:
+                return False 
+    return True
+
+def more_then_x_experience(conducteur,x):
+    someday = get_date_fin_cour(conducteur)
     today = date.today()
     if today.year-x < someday.year:
         return False 
