@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
+
 from datetime import datetime,date
 def get_list_price():
-    list_price = [] 
+    list_price = []
     list_price.append([2014,"Porsche","Boxter",60000])
     list_price.append([2014,"Porsche","Boxter S",72000])
     list_price.append([2014,"Porsche","Cayman",62000])
@@ -37,10 +39,10 @@ def get_list_price():
 
 def find_car(car):
     data = get_list_price()
-    price = 0 
+    price = 0
     for i in data:
         if i[0] == car.annee and i[1] == car.marque and i[2] == car.modele:
-                price = (i[3])         
+                price = (i[3])
     return price
 
 def live_in_quebec(conducteur):
@@ -58,26 +60,26 @@ def older_then_x(conducteur,x):
     someday = get_date_naissance(conducteur)
     today = date.today()
     if today.year-x < someday.year:
-        return False 
+        return False
     if today.year-x == someday.year:
         if today.month > someday.month:
             return False
         if today.month == someday.month:
             if today.day > someday.day:
-                return False 
+                return False
     return True
 
 def more_then_x_experience(conducteur,x):
     someday = get_date_fin_cour(conducteur)
     today = date.today()
     if today.year-x < someday.year:
-        return False 
+        return False
     if today.year-x == someday.year:
         if today.month > someday.month:
             return False
         if today.month == someday.month:
             if today.day > someday.day:
-                return False 
+                return False
     return True
 
 def too_old(conducteur,x):
@@ -90,7 +92,7 @@ def too_old(conducteur,x):
             return True
         if today.month == someday.month:
             if today.day <= someday.day:
-                return True 
+                return True
     return False
 
 

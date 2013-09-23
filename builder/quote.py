@@ -33,3 +33,13 @@ class Quote(object):
             self.montant = None
 
 
+class Contrat(object):
+    pass
+
+
+class Driver(object):
+    pass
+
+
+class Car(object):
+    pass

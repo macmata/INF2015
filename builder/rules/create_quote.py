@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from builder.rules import Rule
 from builder import liste
 
@@ -8,7 +10,7 @@ class CreateQuote(Rule):
         if self.quote.contrat.duree == 3:
             self.quote.montant -= self.quote.montant * 0.15
         self.quote.montant = self.quote.montant * 0.09
-    
+
     def rule_001(self):
         print("execution regle 002")
         self.quote.montant += self.quote.voiture.valeur_des_options * 0.10
@@ -20,7 +22,7 @@ class CreateQuote(Rule):
 
     def rule_003(self):
         print("execution regle 004")
-        if self.quote.voiture.burinage == "Sherlock": 
+        if self.quote.voiture.burinage == "Sherlock":
             self.quote.montant -= 250
 
     def rule_004(self):

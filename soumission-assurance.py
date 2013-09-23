@@ -1,6 +1,8 @@
 import argparse
+import logging
 
-from builder import Quote,load
+from builder import Quote
+from builder.reader.json import JsonReader
 
 parser = argparse.ArgumentParser(description='Calculate a an insurance quote \
     for luxury car.')
@@ -14,8 +16,8 @@ args = parser.parse_args()
 input_file = args.input[0]
 output_file = args.output[0]
 
-car,driver,contrat = load.extract_data_all(input_file)
-q = Quote(car, driver,contrat)
+driver, car, contrat = JsonReader(input_file).get_data()
+q = Quote(car, driver, contrat)
 q.build_quote()
 
 print (q.montant)
