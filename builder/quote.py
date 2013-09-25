@@ -1,6 +1,5 @@
-import sys
 import inspect
-from heapq import heappush, heappop
+from heapq import heappush
 
 from builder import rules
 from builder.rules.rule import Rule
@@ -8,9 +7,9 @@ from builder.exceptions import NotAllowed
 
 
 class Quote(object):
-    def __init__(self, voiture, conducteur,contrat):
-        self.voiture = voiture
-        self.conducteur = conducteur
+    def __init__(self, car, driver, contrat):
+        self.car = car
+        self.driver = driver
         self.contrat = contrat
         self.montant = 0
 
