@@ -24,3 +24,4 @@ pypyenv/
 env*/
 venv/
 quote.log
+unittest_json
