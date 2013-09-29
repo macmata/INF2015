@@ -1,8 +1,12 @@
 import argparse
+import logging.config
 import logging
+import json
 
 from builder import Quote
 from builder.reader.json import JsonReader
+
+logging.config.fileConfig('config.ini')
 
 parser = argparse.ArgumentParser(description='Calculate a an insurance quote \
     for luxury car.')
@@ -15,10 +19,13 @@ parser.add_argument(
     help='Output file to write the quote to.'
 )
 
+
 args = parser.parse_args()
 
 input_file = args.input[0]
 output_file = args.output[0]
+
+logging.debug('Calculating quote from %s' % input_file)
 
 driver, car, contrat = JsonReader(input_file).get_data()
 q = Quote(car, driver, contrat)
@@ -29,4 +36,8 @@ result = {
     'montant_annuel': q.montant_annuel,
     'mensualite': q.montant_mensuel
     }
-print(result)
+
+logging.debug("Resultat : %s" % result)
+
+with open(output_file, 'w') as f:
+    f.write(json.dumps(result))

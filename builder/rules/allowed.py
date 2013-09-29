@@ -1,3 +1,5 @@
+import logging
+
 from builder.rules import Rule
 from builder.exceptions import NotAllowed
 from builder.rules import decorators
@@ -49,22 +51,27 @@ class Allowed(Rule):
         if car in CARS:
             self.quote.car.value = CARS[car]
         else:
+            logging.debug("Not allowed, car not in list")
             raise NotAllowed()
 
     def rule_lives_quebec(self):
         if not self.quote.driver.province == 'Québec':
+            logging.debug("Not allowed, driver not from Quebce")
             raise NotAllowed()
 
     @decorators.younger_than(25)
     @decorators.man
     def rule_25_man(self):
+        logging.debug("Not allowed, man younger than 25")
         raise NotAllowed()
 
     @decorators.younger_than(21)
     @decorators.woman
     def rule_21_woman(self):
+        logging.debug("Not allowed, woman younger than 21")
         raise NotAllowed()
 
     @decorators.older_than(75)
     def rule_genraise(self):
+        logging.debug("Not allowed, older than 21")
         raise NotAllowed()
