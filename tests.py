@@ -1,7 +1,9 @@
 import unittest
 import os
+import datetime
 
 from builder.reader import json
+from builder.quote import Driver, Car, Contrat
 
 
 class JsonReader(unittest.TestCase):
@@ -34,7 +36,6 @@ class JsonReader(unittest.TestCase):
         with open(self.filename, 'w') as f:
             f.write(content)
 
-
     def test_car(self):
         reader = json.JsonReader(self.filename)
         car = reader.build_car()
@@ -46,6 +47,31 @@ class JsonReader(unittest.TestCase):
         assert car.burinage == "Patate Frite"
         assert car.garage_interieur
         assert not car.systeme_alarme
+
+    def test_contrat(self):
+        reader = json.JsonReader(self.filename)
+        contrat = reader.build_contrat()
+        assert contrat.duree == 3
+
+
+    def test_car(self):
+        reader = json.JsonReader(self.filename)
+        driver = reader.build_driver()
+
+        assert driver.date_de_naissance == datetime.datetime(1980, 1, 1)
+        assert driver.date_fin_cours_de_conduite == datetime.datetime(2000, 12, 1)
+        assert driver.ville == 'Montréal'
+        assert driver.province == 'Québec'
+        assert driver.sexe == 'F'
+        assert driver.cours_de_conduite_reconnus_par_CAA
+        assert not driver.premier_contrat
+
+    def test_get_data(self):
+        reader = json.JsonReader(self.filename)
+        (driver, car, contrat) = reader.get_data()
+        assert isinstance(driver, Driver)
+        assert isinstance(car, Car)
+        assert isinstance(contrat, Contrat)
 
     def setDown(self):
         os.unlink(self.filename)
