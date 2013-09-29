@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from builder.quote import Car, Driver, Contrat
 
@@ -20,11 +21,11 @@ class JsonReader(object):
 
     def build_driver(self):
         driver = Driver()
-        driver.date_de_naissance = self.data["conducteur"]["date_de_naissance"]
-        driver.province = self.data["conducteur"]["province"]
+        driver.date_de_naissance = datetime.strptime(self.data["conducteur"]["date_de_naissance"], "%Y-%m-%d")
         driver.ville = self.data["conducteur"]["ville"]
+        driver.province = self.data["conducteur"]["province"]
         driver.sexe = self.data["conducteur"]["sexe"]
-        driver.date_fin_cours_de_conduite = self.data["conducteur"]["date_fin_cours_de_conduite"]
+        driver.date_fin_cours_de_conduite = datetime.strptime(self.data["conducteur"]["date_fin_cours_de_conduite"], "%Y-%m-%d")
         driver.cours_de_conduite_reconnus_par_CAA = self.data["conducteur"]["cours_de_conduite_reconnus_par_CAA"]
         driver.premier_contrat = self.data["conducteur"]["premier_contrat"]
         return driver
