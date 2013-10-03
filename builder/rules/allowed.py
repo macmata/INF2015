@@ -75,5 +75,5 @@ class Allowed(Rule):
 
     @decorators.older_than(75)
     def rule_genraise(self):
-        logging.debug("Not allowed, older than 21")
+        logging.debug("Not allowed, older than 75")
         raise NotAllowed()
