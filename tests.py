@@ -54,7 +54,7 @@ class JsonReader(unittest.TestCase):
         assert contrat.duree == 3
 
 
-    def test_car(self):
+    def test_personne(self):
         reader = json.JsonReader(self.filename)
         driver = reader.build_driver()
 

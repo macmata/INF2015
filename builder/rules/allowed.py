@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-
+import pdb
 import logging
-
 from builder.rules import Rule
 from builder.exceptions import NotAllowed
 from builder.rules import decorators
@@ -50,6 +49,7 @@ class Allowed(Rule):
             self.quote.car.marque,
             self.quote.car.modele
         )
+        #pdb.set_trace()
         if car in CARS:
             self.quote.car.value = CARS[car]
         else:
