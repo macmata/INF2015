@@ -37,7 +37,7 @@ class Quote(object):
     @property
     def montant_mensuel(self):
       if self.assurable > 0:
-        return round(((self.montant * 1.05) / 12) / 100, 2)
+        return round(((self.montant * 1.015) / 12) / 100, 2)
 
 
     @property
