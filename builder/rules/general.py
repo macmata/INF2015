@@ -8,7 +8,7 @@ class GeneralRules(Rule):
     PRIORITY = 2
 
     def rule_options(self):
-        self.quote.montant += int(self.quote.car.valeur_des_options * 0.10)
+        self.quote.montant += int((self.quote.car.valeur_des_options * 100) * 0.10)
 
     def rule_lives_in(self):
         if self.quote.driver.ville in ('Longueuil', 'Montréal'):
