@@ -1,0 +1,21 @@
+{
+    "voiture": {
+        "annee": 2014,
+        "marque": "Porsche",
+        "modele": "Cayenne Turbo",
+        "valeur_des_options": 2500,
+        "burinage": "Autoluck",
+        "garage_interieur": false,
+        "systeme_alarme": true
+    },
+    "conducteur": {
+        "date_de_naissance": "1963-07-12",
+        "province": "Québec",
+        "ville": "Longueuil",
+        "sexe": "F",
+        "date_fin_cours_de_conduite": "1985-12-01",
+        "cours_de_conduite_reconnus_par_CAA": false,
+        "premier_contrat": false
+    },
+    "duree_contrat": 3
+}

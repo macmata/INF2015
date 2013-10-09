@@ -11,7 +11,7 @@ class GeneralRules(Rule):
         self.quote.montant += int(self.quote.car.valeur_des_options * 0.10)
 
     def rule_lives_in(self):
-        if self.quote.driver.ville in ('Québec', 'Montréal'):
+        if self.quote.driver.ville in ('Longueuil', 'Montréal'):
             self.quote.montant += 20000
 
     def rule_sherlock(self):

@@ -1,0 +1,21 @@
+{
+    "voiture": {
+        "annee": 2013,
+        "marque": "Porsche",
+        "modele": "911 Turbo S",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": false
+    },
+    "conducteur": {
+        "date_de_naissance": "1977-01-15",
+        "province": "Québec",
+        "ville": "Montréal",
+        "sexe": "M",
+        "date_fin_cours_de_conduite": "2000-12-01",
+        "cours_de_conduite_reconnus_par_CAA": true,
+        "premier_contrat": false
+    },
+    "duree_contrat": 2
+}
