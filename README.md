@@ -81,3 +81,7 @@ Le fichier de résultat généré par le logiciel devra ressembler à ceci :
  "mensualite": 713.66
 
 }
+
+
+**On retire 1000$ au montant de l'assurance si le conducteur est une femme.**
+**On ajoute 1000$ au montant de l'assurance si le conducteur est un homme de moins de 35 **
