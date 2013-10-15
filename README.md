@@ -135,3 +135,22 @@ nommée "membre_oiq" indiquera s'il s'agit d'un membre de l'Ordre ou non.
 
 Finalement, toutes les valeurs monétaires affichées dans le fichier de sortie doivent être arrondies à 
 deux décimales.
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+>Exigences non fonctionnelles
+Voici quelques contraintes à respecter qui touchent votre code :
+• Votre équipe doit s'entendre sur un style uniforme à appliquer au code. Les particularités de 
+votre style doivent être documentées dans un fichier style.txt (ou style.md si vous avez envie 
+de faire un markdown) à la racine de votre projet. Il est permis de faire référence à un 
+document déjà existant. Le style inclut également la langue utilisée pour nommer vos 
+variables, méthodes ou classes ou pour rédiger vos commentaires dans le code.
+• Une fois votre style défini, tout votre code doit être modifié pour le respecter.
+• Tous commentaires dans le code doivent être pertinents, c'est-à-dire qu'un commentaire doit 
+documenter ce que le code ne décrit pas déjà de façon évidente. Votre approche face aux 
+commentaires doit respecter le chapitre 4 du livre Coder proprement.
+• Vos méthodes ne devraient pas dépasser 10 lignes de code et chaque méthode devrait 
+respecter le "Principe de responsabilité unique" décrit dans le chapitre 3 du livre Coder 
+proprement.
