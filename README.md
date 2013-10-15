@@ -113,10 +113,13 @@ Pour toutes les voitures valant plus de 500 000$, on doit payer une taxe supplé
 ajouté au montant de la soumission.
 
 
-#Rabais ingenieur
+##Rabais ingenieur
 
 Notre client offre 10% de rabais supplémentaire sur tous les contrats d'assurance pour les membres 
 
-##Motos
+#Motos
 de l'Ordre des ingénieurs du Québec. Dans l'objet "conducteur", une nouvelle propriété booléenne 
 nommée "membre_oiq" indiquera s'il s'agit d'un membre de l'Ordre ou non.
+>On ajoute 14% au pourcentage permettant de calculer le montant de base.
+>On ajoute 1000$ si la moto a une puissance supérieure à 1100cc.
+
