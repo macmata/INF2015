@@ -109,7 +109,14 @@ Le montant total du contrat d'assurance sera la somme du montant d'assurance de 
 Par exemple, si c'est le premier contract d'assurance d'une personne et qu'il assure trois 
 voitures, il devrait payer trois fois la pénalité de 2000$.
 
->>Pour toutes les voitures valant plus de 500 000$, on doit payer une taxe supplémentaire de 2 500$, 
+Pour toutes les voitures valant plus de 500 000$, on doit payer une taxe supplémentaire de 2 500$, 
 ajouté au montant de la soumission.
 
 
+#Rabais ingenieur
+
+Notre client offre 10% de rabais supplémentaire sur tous les contrats d'assurance pour les membres 
+
+##Motos
+de l'Ordre des ingénieurs du Québec. Dans l'objet "conducteur", une nouvelle propriété booléenne 
+nommée "membre_oiq" indiquera s'il s'agit d'un membre de l'Ordre ou non.
