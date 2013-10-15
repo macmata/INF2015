@@ -83,5 +83,31 @@ Le fichier de résultat généré par le logiciel devra ressembler à ceci :
 }
 
 
-**On retire 1000$ au montant de l'assurance si le conducteur est une femme.**
-**On ajoute 1000$ au montant de l'assurance si le conducteur est un homme de moins de 35 **
+[On retire 1000$ au montant de l'assurance si le conducteur est une femme.]
+[On ajoute 1000$ au montant de l'assurance si le conducteur est un homme de moins de 35 ]
+
+
+
+le montant de base n'est plus nécessairement 9% de la valeur initiale du véhicule et change pour :
+homme
+Âge Pourcentage
+25 à 35 ans 15%
+36 à 60 ans 12%
+61 à 75 ans 13.5%
+femme
+Âge Pourcentage
+21 à 40 ans 11%
+41 à 65 ans 9%
+66 à 75 ans 15.5%
+
+>
+Il doit être possible d'assurer plusieurs véhicules sur un même contrat d'assurance
+la propriété "voiture" deviendra "voitures" et sa valeur sera un tableau de voitures. 
+Le montant total du contrat d'assurance sera la somme du montant d'assurance de chaque voiture 
+
+>
+Par exemple, si c'est le premier contract d'assurance d'une personne et qu'il assure trois 
+voitures, il devrait payer trois fois la pénalité de 2000$.
+
+
+
