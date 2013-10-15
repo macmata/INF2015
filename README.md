@@ -105,6 +105,8 @@ Il doit être possible d'assurer plusieurs véhicules sur un même contrat d'ass
 la propriété "voiture" deviendra "voitures" et sa valeur sera un tableau de voitures. 
 Le montant total du contrat d'assurance sera la somme du montant d'assurance de chaque voiture 
 
+-------------------------------------------------------------------------------------------------------
+
 >
 Par exemple, si c'est le premier contract d'assurance d'une personne et qu'il assure trois 
 voitures, il devrait payer trois fois la pénalité de 2000$.
@@ -117,9 +119,11 @@ ajouté au montant de la soumission.
 
 Notre client offre 10% de rabais supplémentaire sur tous les contrats d'assurance pour les membres 
 
-#Motos
+##Motos
 de l'Ordre des ingénieurs du Québec. Dans l'objet "conducteur", une nouvelle propriété booléenne 
 nommée "membre_oiq" indiquera s'il s'agit d'un membre de l'Ordre ou non.
 >On ajoute 14% au pourcentage permettant de calculer le montant de base.
 >On ajoute 1000$ si la moto a une puissance supérieure à 1100cc.
-
+-------------------------------------------------------------------------------------------------------
+Finalement, toutes les valeurs monétaires affichées dans le fichier de sortie doivent être arrondies à 
+deux décimales.
