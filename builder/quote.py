@@ -73,6 +73,9 @@ class Driver(object):
             return today.year - birthday.year
 
 
-
 class Car(object):
+    pass
+
+
+class Moto(object):
     pass
