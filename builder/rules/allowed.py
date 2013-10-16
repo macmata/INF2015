@@ -66,20 +66,6 @@ MOTO[(2013,"Ducati","Monster 1100 Evo","1078cc")] = 13500
 MOTO[(2013,"Ducati","Streetfighter 848","849cc")] = 14300
 MOTO[(2013,"Ducati","Superbike 1199 Panigale R","1198cc")] = 32000
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Allowed(Rule):
     PRIORITY = 0
 
@@ -98,7 +84,7 @@ class Allowed(Rule):
 
     def rule_lives_quebec(self):
         if not self.quote.driver.province == 'Québec':
-            logging.debug("Not allowed, driver not from Quebce")
+            logging.debug("Not allowed, driver not from Quebec")
             raise NotAllowed()
 
     @decorators.younger_than(25)
