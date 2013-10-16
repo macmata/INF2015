@@ -59,12 +59,12 @@ CARS[(1993,"Ferrari","348TS Special - Limited Edition")] = 80000
 CARS[(1970,"Ferrari","365 DT 2+2")] = 170000
 CARS[(2013,"Porsche","918 Spyder")] = 845000
 
-MOTO = {}
-MOTO[(2013,"Ducati","Diavel Dark","1198.4cc")] = 19000
-MOTO[(2013,"Ducati","Hypermotard SP","821.1cc")] = 16000
-MOTO[(2013,"Ducati","Monster 1100 Evo","1078cc")] = 13500
-MOTO[(2013,"Ducati","Streetfighter 848","849cc")] = 14300
-MOTO[(2013,"Ducati","Superbike 1199 Panigale R","1198cc")] = 32000
+MOTOS = {}
+MOTOS[(2013,"Ducati","Diavel Dark","1198.4cc")] = 19000
+MOTOS[(2013,"Ducati","Hypermotard SP","821.1cc")] = 16000
+MOTOS[(2013,"Ducati","Monster 1100 Evo","1078cc")] = 13500
+MOTOS[(2013,"Ducati","Streetfighter 848","849cc")] = 14300
+MOTOS[(2013,"Ducati","Superbike 1199 Panigale R","1198cc")] = 32000
 
 class Allowed(Rule):
     PRIORITY = 0
