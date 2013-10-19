@@ -44,6 +44,7 @@ class JsonReader(object):
         driver.date_fin_cours_de_conduite = datetime.strptime(self.data["conducteur"]["date_fin_cours_de_conduite"], "%Y-%m-%d")
         driver.cours_de_conduite_reconnus_par_CAA = self.data["conducteur"]["cours_de_conduite_reconnus_par_CAA"]
         driver.premier_contrat = self.data["conducteur"]["premier_contrat"]
+        driver.membre_oiq = self.data["conducteur"]["membre_oiq"]
         return driver
 
     def build_contrat(self):

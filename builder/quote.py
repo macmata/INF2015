@@ -14,6 +14,7 @@ class Quote(object):
         self.driver = driver
         self.contrat = contrat
         self.montant = 0
+        self.montantTotal = 0
 
         self.rules = []
         for name, module in inspect.getmembers(rules, inspect.ismodule):
