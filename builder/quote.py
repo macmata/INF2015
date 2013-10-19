@@ -35,6 +35,7 @@ class Quote(object):
         except NotAllowed:
             self.montant = 0
             self.assurable = False
+            self.montantTotal = 0
 
     @property
     def montant_mensuel(self):

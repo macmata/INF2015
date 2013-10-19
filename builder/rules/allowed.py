@@ -78,6 +78,7 @@ class Allowed(Rule):
         #pdb.set_trace()
         if car in CARS:
             self.quote.car.value = CARS[car]
+            self.quote.car.valueInit = CARS[car]
         else:
             logging.debug("Not allowed, car not in list")
             raise NotAllowed()
