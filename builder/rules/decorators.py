@@ -1,7 +1,6 @@
 import logging
 
-from builder.quote import Car, Moto
-
+#from builder.quote import Car, Moto
 
 def man(fn):
     def wrapped(obj):
@@ -19,16 +18,16 @@ def woman(fn):
     return wrapped
 
 
-def is_moto(fn):
-    def wrapped(obj):
-        if isinstance(obj, Moto):
-            return fn(obj)
+#def is_moto(fn):
+#    def wrapped(obj):
+#        if isinstance(obj, Moto):
+#            return fn(obj)
 
 
-def is_car(fn):
-    def wrapped(obj):
-        if isinstance(obj, Car):
-            return fn(obj)
+#def is_car(fn):
+#    def wrapped(obj):
+#        if isinstance(obj, Car):
+#            return fn(obj)
 
 
 class older_than(object):

@@ -27,8 +27,9 @@ output_file = args.output[0]
 
 logging.debug('Calculating quote from %s' % input_file)
 
-driver, car, contrat = JsonReader(input_file).get_data()
-q = Quote(car, driver, contrat)
+driver, cars, motos, contrat = JsonReader(input_file).get_data()
+
+q = Quote(cars[0], motos[0], driver, contrat)
 q.build_quote()
 
 result = {

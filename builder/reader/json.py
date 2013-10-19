@@ -1,7 +1,6 @@
 import json
 from datetime import datetime
-
-from builder.quote import Car, Driver, Contrat
+from builder.quote import Car, Driver, Contrat, Moto
 
 class JsonReader(object):
     def __init__(self, input_file):
@@ -9,15 +8,32 @@ class JsonReader(object):
             self.data = json.load(file)
 
     def build_car(self):
-        car = Car()
-        car.annee  = self.data["voiture"]["annee"]
-        car.marque = self.data["voiture"]["marque"]
-        car.modele = self.data["voiture"]["modele"]
-        car.valeur_des_options = self.data["voiture"]["valeur_des_options"]
-        car.burinage = self.data["voiture"]["burinage"]
-        car.garage_interieur = self.data["voiture"]["garage_interieur"]
-        car.systeme_alarme = self.data["voiture"]["systeme_alarme"]
-        return car
+        cars = []
+        for car_data in self.data["voitures"]:
+            car = Car()
+            car.annee  = car_data["annee"]
+            car.marque = car_data["marque"]
+            car.modele = car_data["modele"]
+            car.valeur_des_options = car_data["valeur_des_options"]
+            car.burinage = car_data["burinage"]
+            car.garage_interieur = car_data["garage_interieur"]
+            car.systeme_alarme = car_data["systeme_alarme"]
+            cars.append(car)
+        return cars
+
+    def build_moto(self):
+        motos = []
+        for moto_data in self.data["motos"]:
+            moto = Moto()
+            moto.annee = moto_data["annee"]
+            moto.marque = moto_data["marque"]
+            moto.modele = moto_data["modele"]
+            moto.valeur_des_options = moto_data["valeur_des_options"]
+            moto.burinage = moto_data["burinage"]
+            moto.garage_interieur = moto_data["garage_interieur"]
+            moto.systeme_alarme = moto_data["systeme_alarme"]
+            motos.append(moto)
+        return motos
 
     def build_driver(self):
         driver = Driver()
@@ -30,17 +46,6 @@ class JsonReader(object):
         driver.premier_contrat = self.data["conducteur"]["premier_contrat"]
         return driver
 
-    def build_moto(self):
-        moto = Moto()
-        moto.annee = ["moto"]["annee"]
-        moto.marque = ["moto"]["marque"]
-        moto.modele = ["moto"]["modele"]
-        moto.valeur_des_options = ["moto"]["valeur_des_options"]
-        moto.burinage = ["moto"]["burinage"]
-        moto.garage_interieur = ["moto"]["garage_interieur"]
-        moto.systeme_alarme = ["moto"]["systeme_alarme"]
-        return moto
-
     def build_contrat(self):
         contrat = Contrat()
         contrat.duree = self.data["duree_contrat"]
@@ -50,5 +55,6 @@ class JsonReader(object):
         return (
                 self.build_driver(),
                 self.build_car(),
+                self.build_moto(),
                 self.build_contrat()
         )
