@@ -18,9 +18,9 @@ class GeneralRules(Rule):
         if self.quote.car.burinage == 'Sherlock':
             self.quote.montant -= 25000
 
-    @decorators.woman
-    def rule_woman(self):
-        self.quote.montant -= 100000
+#    @decorators.woman
+#    def rule_woman(self):
+#        self.quote.montant -= 100000
 
     def rule_interior_garage(self):
         if self.quote.car.garage_interieur:
@@ -34,10 +34,10 @@ class GeneralRules(Rule):
         if self.quote.driver.cours_de_conduite_reconnus_par_CAA:
             self.quote.montant -= 10000
 
-    @decorators.man
-    @decorators.younger_than(35)
-    def rule_man_less_than_35(self):
-        self.quote.montant += 100000
+#    @decorators.man
+#    @decorators.younger_than(35)
+#    def rule_man_less_than_35(self):
+#        self.quote.montant += 100000
 
     def rule_premier_contrat(self):
         if self.quote.driver.premier_contrat:
