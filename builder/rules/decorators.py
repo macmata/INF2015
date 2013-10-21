@@ -16,7 +16,6 @@ def woman(fn):
         logging.debug('Decorator woman called')
         if obj.quote.driver.sexe == 'F':
             return fn(obj)
-
     return wrapped
 
 
@@ -38,7 +37,7 @@ class older_than(object):
 
     def __call__(self, fn):
         def wrapped(obj):
-            logging.debug('Decorator older than %d called' % self.age)
+            logging.debug('Decorator older than %d called' %self.age)
             if obj.quote.driver.age > self.age:
                 return fn(obj)
 
@@ -52,10 +51,9 @@ class braket_age_femme(object):
 
     def __call__(self, fn):
         def wrapped(obj):
-            logging.debug('Femme age de %s' % self.age)
+            logging.debug('braket_age_femme  de %d et %d' %(self.braket_left , self.braket_right))
             if self.braket_left > obj.quote.driver.age < self.braket_right:
                 return fn(obj)
-
         return wrapped
 
 
