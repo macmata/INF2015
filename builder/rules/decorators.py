@@ -44,7 +44,7 @@ class older_than(object):
         return wrapped
 
 
-class braket_age_femme(object):
+class braket_age(object):
     def __init__(self, braket_left, braket_right):
         self.braket_left = braket_left
         self.braket_right = braket_right
