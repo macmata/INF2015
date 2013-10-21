@@ -22,17 +22,32 @@ class GeneralRules(Rule):
     @decorators.woman
     @decorators.braket_age_femme(21,50)
     def rule_woman(self):
-        self.quote.montant *= 0.11
+        self.quote.montant *= 1.11
 
     @decorators.woman
     @decorators.braket_age_femme(41,65)
     def rule_woman(self):
-        self.quote.montant *= 0.09
+        self.quote.montant *= 1.09
 
     @decorators.woman
     @decorators.braket_age_femme(66,75)
     def rule_woman(self):
-        self.quote.montant *= 0.15
+        self.quote.montant *= 1.15
+
+    @decorators.men
+    @decorators.braket_age_femme(25,35)
+    def rule_woman(self):
+        self.quote.montant *= 1.15
+
+    @decorators.men
+    @decorators.braket_age_femme(36,60)
+    def rule_woman(self):
+        self.quote.montant *= 1.12
+
+    @decorators.men
+    @decorators.braket_age_femme(61,75)
+    def rule_woman(self):
+        self.quote.montant *= 1.135
 
 #    @decorators.woman
 #    def rule_woman(self):
