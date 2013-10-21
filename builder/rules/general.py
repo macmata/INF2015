@@ -19,8 +19,19 @@ class GeneralRules(Rule):
             self.quote.montant -= 25000
 
     @decorators.woman
+    @decorators.braket_age_femme(21,50)
     def rule_woman(self):
-        self.quote.montant -= 100000
+        self.quote.montant *= 0.11
+
+    @decorators.woman
+    @decorators.braket_age_femme(41,65)
+    def rule_woman(self):
+        self.quote.montant *= 0.09
+
+    @decorators.woman
+    @decorators.braket_age_femme(66,75)
+    def rule_woman(self):
+        self.quote.montant *= 0.15
 
     def rule_interior_garage(self):
         if self.quote.car.garage_interieur:

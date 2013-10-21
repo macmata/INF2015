@@ -6,7 +6,8 @@ from builder.rules import Rule
 class CreateQuote(Rule):
     PRIORITY = 1
 
-    def rule_create(self):
+    def legacy_rule_create(self):
+    	"""legacy rulefrom part 1"""
         if not hasattr(self.quote.car, 'value'):
             raise Exception("Car value was not set")
 
