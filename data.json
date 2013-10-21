@@ -1,21 +1,44 @@
 {
-"voiture": {
-"annee": 2014,
-"marque": "Porsche",
-"modele": "911 Turbo S",
-"valeur_des_options": 8000.00,
-"burinage": "PROACTIF",
-"garage_interieur": true,
-"systeme_alarme": false
-},
-"conducteur": {
-"date_de_naissance": "1977-09-19",
-"province": "Québec",
-"ville": "Montréal",
-"sexe": "M",
-"date_fin_cours_de_conduite": "2000-12-01",
-"cours_de_conduite_reconnus_par_CAA": true,
-"premier_contrat": false
-},
-"duree_contrat": 2
+    "voitures": [
+    {
+        "annee": 2014,
+        "marque": "Porsche",
+        "modele": "911 Turbo S",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": false
+    },
+    {
+        "annee": 2013,
+        "marque": "Ferrari",
+        "modele": "FF",
+        "valeur_des_options": 12000,
+        "burinage": "Sherlock",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    }
+    ],
+        "motos": [
+        {
+            "annee": 2013,
+            "marque": "Ducati",
+            "modele": "Superbike 1199 Panigale R",
+            "valeur_des_options": 1000,
+            "burinage": null,
+            "garage_interieur": false,
+            "systeme_alarme": false
+        }
+    ],
+        "conducteur": {
+            "date_de_naissance": "1977-01-15",
+            "province": "Québec",
+            "ville": "Montréal",
+            "sexe": "M",
+            "date_fin_cours_de_conduite": "2000-12-01",
+            "cours_de_conduite_reconnus_par_CAA": true,
+            "premier_contrat": false,
+            "membre_oiq": true
+        },
+        "duree_contrat": 2
 }

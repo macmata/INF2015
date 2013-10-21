@@ -8,11 +8,13 @@ from builder.exceptions import NotAllowed
 
 
 class Quote(object):
-    def __init__(self, car, driver, contrat):
+    def __init__(self, car, moto, driver, contrat):
         self.car = car
+        self.moto = moto
         self.driver = driver
         self.contrat = contrat
         self.montant = 0
+        self.montantTotal = 0
 
         self.rules = []
         for name, module in inspect.getmembers(rules, inspect.ismodule):
@@ -33,6 +35,7 @@ class Quote(object):
         except NotAllowed:
             self.montant = 0
             self.assurable = False
+            self.montantTotal = 0
 
     @property
     def montant_mensuel(self):

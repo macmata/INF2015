@@ -14,3 +14,6 @@ class CreateQuote(Rule):
         if self.quote.contrat.duree == 3:
             self.quote.car.value *= 0.85
         self.quote.montant = int(self.quote.car.value * 0.09 * 100)
+
+        if self.quote.car.valueInit > 500000:
+            self.quote.montant += 250000
