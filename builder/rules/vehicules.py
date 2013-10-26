@@ -55,8 +55,8 @@ Cars[(1970, "Ferrari", "365 DT 2+2")] = 170000
 Cars[(2013, "Porsche", "918 Spyder")] = 845000
 
 Motos = {}
-Motos[(2013, "Ducati", "Diavel Dark", "1198.4cc")] = 19000
-Motos[(2013, "Ducati", "Hypermotard SP", "821.1cc")] = 16000
-Motos[(2013, "Ducati", "Monster 1100 Evo", "1078cc")] = 13500
-Motos[(2013, "Ducati", "Streetfighter 848", "849cc")] = 14300
-Motos[(2013, "Ducati", "Superbike 1199 Panigale R", "1198cc")] = 32000
+Motos[(2013, "Ducati", "Diavel Dark", 1198.4)] = 19000
+Motos[(2013, "Ducati", "Hypermotard SP", 821.1)] = 16000
+Motos[(2013, "Ducati", "Monster 1100 Evo", 1078)] = 13500
+Motos[(2013, "Ducati", "Streetfighter 848", 849)] = 14300
+Motos[(2013, "Ducati", "Superbike 1199 Panigale R", 1198)] = 32000

@@ -3,7 +3,7 @@ import logging.config
 import logging
 import json
 
-from builder import Quote
+from builder.quote import Quote
 from builder.reader.json import JsonReader
 
 logging.config.fileConfig('config.ini')
@@ -29,6 +29,7 @@ logging.debug('Calculating quote from %s' % input_file)
 
 driver, cars, motos, contrat = JsonReader(input_file).get_data()
 
+quotes = build_qu
 q = Quote(cars[0], motos[0], driver, contrat)
 q.build_quote()
 

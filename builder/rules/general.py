@@ -1,75 +1,34 @@
 # -*- coding: utf-8 -*-
 
 from builder.rules import Rule
-from builder.rules import decorators
 
 
 class GeneralRules(Rule):
-    PRIORITY = 2
+    PRIORITY = 3
 
     def rule_options(self):
-        self.quote.montant += int((self.quote.car.valeur_des_options * 100) * 0.10)
+        self.quote.montant += \
+            int((self.quote.vehicule.valeur_des_options * 100) * 0.10)
 
     def rule_lives_in(self):
         if self.quote.driver.ville in ('Longueuil', 'Montréal'):
             self.quote.montant += 20000
 
     def rule_sherlock(self):
-        if self.quote.car.burinage == 'Sherlock':
+        if self.quote.vehicule.burinage == 'Sherlock':
             self.quote.montant -= 25000
 
-
-    @decorators.woman
-    @decorators.braket_age_femme(21,50)
-    def rule_woman(self):
-        self.quote.montant *= 1.11
-
-    @decorators.woman
-    @decorators.braket_age_femme(41,65)
-    def rule_woman(self):
-        self.quote.montant *= 1.09
-
-    @decorators.woman
-    @decorators.braket_age_femme(66,75)
-    def rule_woman(self):
-        self.quote.montant *= 1.15
-
-    @decorators.men
-    @decorators.braket_age_femme(25,35)
-    def rule_woman(self):
-        self.quote.montant *= 1.15
-
-    @decorators.men
-    @decorators.braket_age_femme(36,60)
-    def rule_woman(self):
-        self.quote.montant *= 1.12
-
-    @decorators.men
-    @decorators.braket_age_femme(61,75)
-    def rule_woman(self):
-        self.quote.montant *= 1.135
-
-#    @decorators.woman
-#    def rule_woman(self):
-#        self.quote.montant -= 100000
-
-
     def rule_interior_garage(self):
-        if self.quote.car.garage_interieur:
+        if self.quote.vehicule.garage_interieur:
             self.quote.montant -= 50000
 
     def rule_alarm_system(self):
-        if self.quote.car.systeme_alarme:
+        if self.quote.vehicule.systeme_alarme:
             self.quote.montant -= 50000
 
     def rule_cours_conduite_caa(self):
         if self.quote.driver.cours_de_conduite_reconnus_par_CAA:
             self.quote.montant -= 10000
-
-#    @decorators.man
-#    @decorators.younger_than(35)
-#    def rule_man_less_than_35(self):
-#        self.quote.montant += 100000
 
     def rule_premier_contrat(self):
         if self.quote.driver.premier_contrat:

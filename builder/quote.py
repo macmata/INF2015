@@ -7,10 +7,14 @@ from builder.rules.rule import Rule
 from builder.exceptions import NotAllowed
 
 
+class Quotes(object):
+    def __init__(self, vehicules, driver, contrat):
+        pass
+
+
 class Quote(object):
-    def __init__(self, car, moto, driver, contrat):
-        self.car = car
-        self.moto = moto
+    def __init__(self, vehicule, driver, contrat):
+        self.vehicule = vehicule
         self.driver = driver
         self.contrat = contrat
         self.montant = 0
@@ -39,14 +43,14 @@ class Quote(object):
 
     @property
     def montant_mensuel(self):
-      if self.assurable > 0:
-        return round(((self.montant * 1.015) / 12) / 100, 2)
-
+        if self.assurable > 0:
+            return round(((self.montant * 1.015) / 12) / 100, 2)
 
     @property
     def montant_annuel(self):
-      if self.assurable:
-        return round(self.montant / 100, 2)
+        if self.assurable:
+            return round(self.montant / 100, 2)
+
 
 class Contrat(object):
     pass
@@ -59,7 +63,7 @@ class Driver(object):
         birthday = self.date_de_naissance
 
         if today.month < birthday.month or \
-          (today.month == birthday.month and today.day < birthday.day):
+                (today.month == birthday.month and today.day < birthday.day):
             return today.year - birthday.year - 1
         else:
             return today.year - birthday.year
@@ -70,15 +74,19 @@ class Driver(object):
         birthday = self.date_fin_cours_de_conduite
 
         if today.month < birthday.month or \
-          (today.month == birthday.month and today.day < birthday.day):
+                (today.month == birthday.month and today.day < birthday.day):
             return today.year - birthday.year - 1
         else:
             return today.year - birthday.year
 
 
-class Car(object):
+class Vehicule(object):
     pass
 
 
-class Moto(object):
+class Car(Vehicule):
+    pass
+
+
+class Moto(Vehicule):
     pass

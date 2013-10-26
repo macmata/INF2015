@@ -2,6 +2,7 @@ import json
 from datetime import datetime
 from builder.quote import Car, Driver, Contrat, Moto
 
+
 class JsonReader(object):
     def __init__(self, input_file):
         with open(input_file) as file:
@@ -11,7 +12,7 @@ class JsonReader(object):
         cars = []
         for car_data in self.data["voitures"]:
             car = Car()
-            car.annee  = car_data["annee"]
+            car.annee = car_data["annee"]
             car.marque = car_data["marque"]
             car.modele = car_data["modele"]
             car.valeur_des_options = car_data["valeur_des_options"]
@@ -37,12 +38,17 @@ class JsonReader(object):
 
     def build_driver(self):
         driver = Driver()
-        driver.date_de_naissance = datetime.strptime(self.data["conducteur"]["date_de_naissance"], "%Y-%m-%d")
+        driver.date_de_naissance = datetime.strptime(
+            self.data["conducteur"]["date_de_naissance"], "%Y-%m-%d"
+        )
         driver.ville = self.data["conducteur"]["ville"]
         driver.province = self.data["conducteur"]["province"]
         driver.sexe = self.data["conducteur"]["sexe"]
-        driver.date_fin_cours_de_conduite = datetime.strptime(self.data["conducteur"]["date_fin_cours_de_conduite"], "%Y-%m-%d")
-        driver.cours_de_conduite_reconnus_par_CAA = self.data["conducteur"]["cours_de_conduite_reconnus_par_CAA"]
+        driver.date_fin_cours_de_conduite = datetime.strptime(
+            self.data["conducteur"]["date_fin_cours_de_conduite"], "%Y-%m-%d"
+        )
+        driver.cours_de_conduite_reconnus_par_CAA = \
+            self.data["conducteur"]["cours_de_conduite_reconnus_par_CAA"]
         driver.premier_contrat = self.data["conducteur"]["premier_contrat"]
         driver.membre_oiq = self.data["conducteur"]["membre_oiq"]
         return driver
@@ -54,8 +60,8 @@ class JsonReader(object):
 
     def get_data(self):
         return (
-                self.build_driver(),
-                self.build_car(),
-                self.build_moto(),
-                self.build_contrat()
+            self.build_driver(),
+            self.build_car(),
+            self.build_moto(),
+            self.build_contrat()
         )
