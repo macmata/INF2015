@@ -93,4 +93,3 @@ class CreateQuote(Rule):
     def rule_man_61_75_moto(self):
         logging.debug("Moto Man, 61 - 75")
         self.quote.montant = int(self.quote.vehicule.value * 100 * 0.275)
-        self.quote.montant *= 1.135
