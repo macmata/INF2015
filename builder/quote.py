@@ -1,7 +1,6 @@
 import inspect
 from datetime import date
 from heapq import heappush, heappop
-
 from builder import rules
 from builder.rules.rule import Rule
 from builder.exceptions import NotAllowed
