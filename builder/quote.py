@@ -1,6 +1,6 @@
 import inspect
 from datetime import date
-from heapq import heappush
+from heapq import heappush, heappop
 
 from builder import rules
 from builder.rules.rule import Rule
@@ -59,7 +59,8 @@ class Quote(object):
     def build_quote(self):
         self.assurable = True
         try:
-            for _, rule in self.rules:
+            while self.rules:
+                _, rule = heappop(self.rules)
                 rule.apply_rules()
         except NotAllowed:
             self.montant = 0
