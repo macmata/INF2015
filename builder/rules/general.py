@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from builder.rules import Rule
+from builder.rules import decorators
 
 
 class GeneralRules(Rule):
     PRIORITY = 3
+
+    @decorators.moto
+    def rule_moto_1000cc(self):
+        if self.quote.vehicule.cc > 1000:
+            self.quote.montant += 100000
 
     def rule_options(self):
         self.quote.montant += \
