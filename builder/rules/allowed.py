@@ -10,17 +10,32 @@ from builder.rules.vehicules import Cars, Motos, Car, Moto
 class Allowed(Rule):
     PRIORITY = 0
 
-    def rule_vehicule_exists(self):
-        vehicule = (
+    def create_vehicule(self):
+        return (
             self.quote.vehicule.annee,
             self.quote.vehicule.marque,
             self.quote.vehicule.modele
         )
-        if isinstance(self.quote.vehicule, Car) and vehicule in Cars:
-            self.quote.vehicule.value = Cars[vehicule]
-        elif isinstance(self.quote.vehicule, Moto) and vehicule in Motos:
+
+
+    @decorators.moto
+    def rule_vehicule_exists_moto(self):
+        vehicule = self.create_vehicule()
+        if vehicule in Motos:
             self.quote.vehicule.value = Motos[vehicule][1]
             self.quote.vehicule.cc = Motos[vehicule][0]
+        else:
+            logging.debug(
+                "Not allowed, vehicule %s %s %s not in list" % vehicule
+            )
+            raise NotAllowed()
+
+
+    @decorators.car
+    def rule_vehicule_exists_car(self):
+        vehicule = self.create_vehicule()
+        if vehicule in Cars:
+            self.quote.vehicule.value = Cars[vehicule]
         else:
             logging.debug(
                 "Not allowed, vehicule %s %s %s not in list" % vehicule

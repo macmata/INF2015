@@ -12,6 +12,10 @@ class GeneralRules(Rule):
         if self.quote.vehicule.cc > 1000:
             self.quote.montant += 100000
 
+    def rule_vehicule_plus_500000(self):
+        if self.quote.vehicule.value > 500000:
+            self.quote.montant += 250000
+
     def rule_options(self):
         self.quote.montant += \
             int((self.quote.vehicule.valeur_des_options * 100) * 0.10)
