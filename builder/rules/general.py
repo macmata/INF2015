@@ -47,3 +47,4 @@ class GeneralRules(Rule):
     def rule_annee_experience(self):
         if self.quote.driver.years_experience > 15:
             self.quote.montant -= 40000
+
