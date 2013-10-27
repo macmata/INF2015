@@ -33,7 +33,7 @@ class CreateQuote(Rule):
     @decorators.man
     @decorators.braket_age(25, 35)
     def rule_man_25_35_car(self):
-        logging.debug("Car Man, 21 - 35")
+        logging.debug("Car Man, 25 - 35")
         self.quote.montant = int(self.quote.vehicule.value * 100 * 0.15)
 
     @decorators.car
