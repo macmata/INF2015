@@ -19,12 +19,18 @@ class Quotes(object):
     @property
     def montant_mensuel(self):
         if self.assurable:
-            return sum([q.montant_mensuel for q in self.quotes if q.assurable])
+            return round(
+                sum([q.montant_mensuel for q in self.quotes if q.assurable]),
+                2
+            )
 
     @property
     def montant_annuel(self):
         if self.assurable:
-            return sum([q.montant_annuel for q in self.quotes if q.assurable])
+            return round(
+                sum([q.montant_annuel for q in self.quotes if q.assurable]),
+                2
+            )
 
     @property
     def assurable(self):

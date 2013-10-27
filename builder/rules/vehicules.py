@@ -55,11 +55,11 @@ Cars[(1970, u"Ferrari", u"365 DT 2+2")] = 170000
 Cars[(2013, u"Porsche", u"918 Spyder")] = 845000
 
 Motos = {}
-Motos[(2013, u"Ducati", u"Diavel Dark", 1198.4)] = 19000
-Motos[(2013, u"Ducati", u"Hypermotard SP", 821.1)] = 16000
-Motos[(2013, u"Ducati", u"Monster 1100 Evo", 1078)] = 13500
-Motos[(2013, u"Ducati", u"Streetfighter 848", 849)] = 14300
-Motos[(2013, u"Ducati", u"Superbike 1199 Panigale R", 1198)] = 32000
+Motos[(2013, u"Ducati", u"Diavel Dark")] = (1198.4, 19000)
+Motos[(2013, u"Ducati", u"Hypermotard SP")] = (821.1, 16000)
+Motos[(2013, u"Ducati", u"Monster 1100 Evo")] = (1078, 13500)
+Motos[(2013, u"Ducati", u"Streetfighter 848")] = (849, 14300)
+Motos[(2013, u"Ducati", u"Superbike 1199 Panigale R")] = (1198, 32000)
 
 
 class Vehicule(object):

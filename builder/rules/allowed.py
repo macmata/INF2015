@@ -19,9 +19,12 @@ class Allowed(Rule):
         if isinstance(self.quote.vehicule, Car) and vehicule in Cars:
             self.quote.vehicule.value = Cars[vehicule]
         elif isinstance(self.quote.vehicule, Moto) and vehicule in Motos:
-            self.quote.vehicule.value = Motos[vehicule]
+            self.quote.vehicule.value = Motos[vehicule][1]
+            self.quote.vehicule.cc = Motos[vehicule][0]
         else:
-            logging.debug("Not allowed, car not in list")
+            logging.debug(
+                "Not allowed, vehicule %s %s %s not in list" % vehicule
+            )
             raise NotAllowed()
 
     def rule_lives_quebec(self):

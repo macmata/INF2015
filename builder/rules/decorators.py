@@ -16,16 +16,18 @@ def woman(fn):
     return wrapped
 
 
-def is_moto(fn):
+def moto(fn):
     def wrapped(obj):
-        if isinstance(obj, Moto):
+        if isinstance(obj.quote.vehicule, Moto):
             return fn(obj)
+    return wrapped
 
 
-def is_car(fn):
+def car(fn):
     def wrapped(obj):
-        if isinstance(obj, Car):
+        if isinstance(obj.quote.vehicule, Car):
             return fn(obj)
+    return wrapped
 
 
 class older_than(object):
