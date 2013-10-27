@@ -20,7 +20,7 @@ class CreateQuote(Rule):
     @decorators.braket_age(41, 65)
     def rule_woman_41_65_car(self):
         logging.debug("Car Woman, 41 - 65")
-        self.quote.montant = int(self.quote.vehicule.value * 100 * 0.9)
+        self.quote.montant = int(self.quote.vehicule.value * 100 * 0.09)
 
     @decorators.car
     @decorators.woman
@@ -33,7 +33,7 @@ class CreateQuote(Rule):
     @decorators.man
     @decorators.braket_age(25, 35)
     def rule_man_25_35_car(self):
-        logging.debug("Car Man, 21 - 50")
+        logging.debug("Car Man, 21 - 35")
         self.quote.montant = int(self.quote.vehicule.value * 100 * 0.15)
 
     @decorators.car
@@ -56,7 +56,7 @@ class CreateQuote(Rule):
     @decorators.braket_age(21, 40)
     def rule_woman_21_50_moto(self):
         logging.debug("Moto Woman, 21 - 40")
-        self.quote.montant = int(self.quote.vehicule.value * 100 * 0.11)
+        self.quote.montant = int(self.quote.vehicule.value * 100 * 0.25)
 
 
     @decorators.moto
@@ -64,7 +64,7 @@ class CreateQuote(Rule):
     @decorators.braket_age(41, 65)
     def rule_woman_41_65_moto(self):
         logging.debug("Moto Woman, 41 - 65")
-        self.quote.montant = int(self.quote.vehicule.value * 100 * 0.25)
+        self.quote.montant = int(self.quote.vehicule.value * 100 * 0.23)
 
     @decorators.moto
     @decorators.woman
@@ -77,7 +77,7 @@ class CreateQuote(Rule):
     @decorators.man
     @decorators.braket_age(25, 35)
     def rule_man_25_35_moto(self):
-        logging.debug("Moto Man, 21 - 50")
+        logging.debug("Moto Man, 25 - 35")
         self.quote.montant = int(self.quote.vehicule.value * 100 * 0.29)
 
     @decorators.moto

@@ -49,7 +49,7 @@ class braket_age(object):
 
     def __call__(self, fn):
         def wrapped(obj):
-            if self.braket_left > obj.quote.driver.age < self.braket_right:
+            if self.braket_left <= obj.quote.driver.age > self.braket_right:
                 return fn(obj)
         return wrapped
 
