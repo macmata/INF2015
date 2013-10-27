@@ -1,4 +1,4 @@
-from builder.quote import Car, Moto
+from builder.rules.vehicules import Car, Moto
 
 
 def man(fn):

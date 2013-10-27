@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 import json
 from datetime import datetime
 from builder.quote import Car, Driver, Contrat, Moto

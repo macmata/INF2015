@@ -4,8 +4,7 @@ import logging
 from builder.rules import Rule
 from builder.exceptions import NotAllowed
 from builder.rules import decorators
-from builder.rules.vehicules import Cars, Motos
-from builder.quote import Car, Moto
+from builder.rules.vehicules import Cars, Motos, Car, Moto
 
 
 class Allowed(Rule):
@@ -17,19 +16,16 @@ class Allowed(Rule):
             self.quote.vehicule.marque,
             self.quote.vehicule.modele
         )
-        #pdb.set_trace()
         if isinstance(self.quote.vehicule, Car) and vehicule in Cars:
-            self.quote.car.value = Cars[vehicule]
-            self.quote.car.valueInit = Cars[vehicule]
+            self.quote.vehicule.value = Cars[vehicule]
         elif isinstance(self.quote.vehicule, Moto) and vehicule in Motos:
-            self.quote.car.value = Motos[vehicule]
-            self.quote.car.valueInit = Motos[vehicule]
+            self.quote.vehicule.value = Motos[vehicule]
         else:
             logging.debug("Not allowed, car not in list")
             raise NotAllowed()
 
     def rule_lives_quebec(self):
-        if not self.quote.driver.province == 'Québec':
+        if not self.quote.driver.province == u'Québec':
             logging.debug("Not allowed, driver not from Quebec")
             raise NotAllowed()
 

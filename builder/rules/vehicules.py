@@ -1,62 +1,74 @@
 # -*- coding: utf-8 -*-
 
 Cars = {}
-Cars[(2014, "Porsche", "Boxter")] = 60000
-Cars[(2014, "Porsche", "Boxter S")] = 72000
-Cars[(2014, "Porsche", "Cayman")] = 62000
-Cars[(2014, "Porsche", "Cayman S")] = 75000
-Cars[(2014, "Porsche", "911 Carrera")] = 100000
-Cars[(2014, "Porsche", "911 Carrera S")] = 115000
-Cars[(2014, "Porsche", "911 Carrera Cabriolet")] = 112000
-Cars[(2014, "Porsche", "911 Carrera S Cabriolet")] = 129000
-Cars[(2014, "Porsche", "911 Carrera 4")] = 106000
-Cars[(2014, "Porsche", "911 Carrera 4S")] = 123000
-Cars[(2014, "Porsche", "911 Carrera 4 Cabriolet")] = 120000
-Cars[(2014, "Porsche", "911 Carrera 4S Cabriolet")] = 137000
-Cars[(2014, "Porsche", "911 50 ans")] = 142000
-Cars[(2014, "Porsche", "911 Turbo")] = 170000
-Cars[(2014, "Porsche", "911 Turbo S")] = 207000
-Cars[(2014, "Porsche", "911 GT3")] = 149000
-Cars[(2014, "Porsche", "Panamera")] = 90000
-Cars[(2014, "Porsche", "Panamera 4")] = 95000
-Cars[(2014, "Porsche", "Panamera S")] = 107000
-Cars[(2014, "Porsche", "Panamera S E-Hybride")] = 114000
-Cars[(2014, "Porsche", "Panamera 4S")] = 113000
-Cars[(2014, "Porsche", "Panamera 4S Executive")] = 144000
-Cars[(2014, "Porsche", "Paramera GTS")] = 130000
-Cars[(2014, "Porsche", "Paramera Turbo")] = 162000
-Cars[(2014, "Porsche", "Paramera Turbo Executive")] = 185000
-Cars[(2014, "Porsche", "Cayenne")] = 59000
-Cars[(2014, "Porsche", "Cayenne Diesel")] = 67000
-Cars[(2014, "Porsche", "Cayenne S")] = 77000
-Cars[(2014, "Porsche", "Cayenne S Hybride")] = 82000
-Cars[(2014, "Porsche", "Cayenne GTS")] = 96000
-Cars[(2014, "Porsche", "Cayenne Turbo")] = 125000
-Cars[(2014, "Porsche", "Cayenne Turbo S")] = 169000
-Cars[(2014, "Maserati", "Quattroporte Q4 AWD")] = 119000
-Cars[(2014, "Maserati", "Quattroporte GTS")] = 148000
-Cars[(2013, "Maserati", "GranTurismo Sport")] = 140000
-Cars[(2012, "Maserati", "GranTurismo S - MC SportLine")] = 130000
-Cars[(2012, "Maserati", "GranTurismo MC Stradale")] = 145000
-Cars[(2011, "Maserati", "GranTurismo S Convertible")] = 127000
-Cars[(2013, "Ferrari", "FF")] = 340000
-Cars[(2013, "Ferrari", "California F1")] = 246000
-Cars[(2012, "Ferrari", "458 Spyder F1")] = 343000
-Cars[(2012, "Ferrari", "458 Italia F1")] = 300000
-Cars[(2012, "Ferrari", "California F1")] = 223000
-Cars[(2010, "Ferrari", "599GTB Fiorano F1")] = 250000
-Cars[(2010, "Ferrari", "California F1")] = 189000
-Cars[(2009, "Ferrari", "Scuderia 16M Spider F1")] = 280000
-Cars[(2009, "Ferrari", "F4300 Spider F1")] = 180000
-Cars[(2006, "Ferrari", "F430 Challenge F1")] = 150000
-Cars[(2003, "Ferrari", "575M Maranello F1")] = 93000
-Cars[(1993, "Ferrari", "348TS Special - Limited Edition")] = 80000
-Cars[(1970, "Ferrari", "365 DT 2+2")] = 170000
-Cars[(2013, "Porsche", "918 Spyder")] = 845000
+Cars[(2014, u"Porsche", u"Boxter")] = 60000
+Cars[(2014, u"Porsche", u"Boxter S")] = 72000
+Cars[(2014, u"Porsche", u"Cayman")] = 62000
+Cars[(2014, u"Porsche", u"Cayman S")] = 75000
+Cars[(2014, u"Porsche", u"911 Carrera")] = 100000
+Cars[(2014, u"Porsche", u"911 Carrera S")] = 115000
+Cars[(2014, u"Porsche", u"911 Carrera Cabriolet")] = 112000
+Cars[(2014, u"Porsche", u"911 Carrera S Cabriolet")] = 129000
+Cars[(2014, u"Porsche", u"911 Carrera 4")] = 106000
+Cars[(2014, u"Porsche", u"911 Carrera 4S")] = 123000
+Cars[(2014, u"Porsche", u"911 Carrera 4 Cabriolet")] = 120000
+Cars[(2014, u"Porsche", u"911 Carrera 4S Cabriolet")] = 137000
+Cars[(2014, u"Porsche", u"911 50 ans")] = 142000
+Cars[(2014, u"Porsche", u"911 Turbo")] = 170000
+Cars[(2014, u"Porsche", u"911 Turbo S")] = 207000
+Cars[(2014, u"Porsche", u"911 GT3")] = 149000
+Cars[(2014, u"Porsche", u"Panamera")] = 90000
+Cars[(2014, u"Porsche", u"Panamera 4")] = 95000
+Cars[(2014, u"Porsche", u"Panamera S")] = 107000
+Cars[(2014, u"Porsche", u"Panamera S E-Hybride")] = 114000
+Cars[(2014, u"Porsche", u"Panamera 4S")] = 113000
+Cars[(2014, u"Porsche", u"Panamera 4S Executive")] = 144000
+Cars[(2014, u"Porsche", u"Paramera GTS")] = 130000
+Cars[(2014, u"Porsche", u"Paramera Turbo")] = 162000
+Cars[(2014, u"Porsche", u"Paramera Turbo Executive")] = 185000
+Cars[(2014, u"Porsche", u"Cayenne")] = 59000
+Cars[(2014, u"Porsche", u"Cayenne Diesel")] = 67000
+Cars[(2014, u"Porsche", u"Cayenne S")] = 77000
+Cars[(2014, u"Porsche", u"Cayenne S Hybride")] = 82000
+Cars[(2014, u"Porsche", u"Cayenne GTS")] = 96000
+Cars[(2014, u"Porsche", u"Cayenne Turbo")] = 125000
+Cars[(2014, u"Porsche", u"Cayenne Turbo S")] = 169000
+Cars[(2014, u"Maserati", u"Quattroporte Q4 AWD")] = 119000
+Cars[(2014, u"Maserati", u"Quattroporte GTS")] = 148000
+Cars[(2013, u"Maserati", u"GranTurismo Sport")] = 140000
+Cars[(2012, u"Maserati", u"GranTurismo S - MC SportLine")] = 130000
+Cars[(2012, u"Maserati", u"GranTurismo MC Stradale")] = 145000
+Cars[(2011, u"Maserati", u"GranTurismo S Convertible")] = 127000
+Cars[(2013, u"Ferrari", u"FF")] = 340000
+Cars[(2013, u"Ferrari", u"California F1")] = 246000
+Cars[(2012, u"Ferrari", u"458 Spyder F1")] = 343000
+Cars[(2012, u"Ferrari", u"458 Italia F1")] = 300000
+Cars[(2012, u"Ferrari", u"California F1")] = 223000
+Cars[(2010, u"Ferrari", u"599GTB Fiorano F1")] = 250000
+Cars[(2010, u"Ferrari", u"California F1")] = 189000
+Cars[(2009, u"Ferrari", u"Scuderia 16M Spider F1")] = 280000
+Cars[(2009, u"Ferrari", u"F4300 Spider F1")] = 180000
+Cars[(2006, u"Ferrari", u"F430 Challenge F1")] = 150000
+Cars[(2003, u"Ferrari", u"575M Maranello F1")] = 93000
+Cars[(1993, u"Ferrari", u"348TS Special - Limited Edition")] = 80000
+Cars[(1970, u"Ferrari", u"365 DT 2+2")] = 170000
+Cars[(2013, u"Porsche", u"918 Spyder")] = 845000
 
 Motos = {}
-Motos[(2013, "Ducati", "Diavel Dark", 1198.4)] = 19000
-Motos[(2013, "Ducati", "Hypermotard SP", 821.1)] = 16000
-Motos[(2013, "Ducati", "Monster 1100 Evo", 1078)] = 13500
-Motos[(2013, "Ducati", "Streetfighter 848", 849)] = 14300
-Motos[(2013, "Ducati", "Superbike 1199 Panigale R", 1198)] = 32000
+Motos[(2013, u"Ducati", u"Diavel Dark", 1198.4)] = 19000
+Motos[(2013, u"Ducati", u"Hypermotard SP", 821.1)] = 16000
+Motos[(2013, u"Ducati", u"Monster 1100 Evo", 1078)] = 13500
+Motos[(2013, u"Ducati", u"Streetfighter 848", 849)] = 14300
+Motos[(2013, u"Ducati", u"Superbike 1199 Panigale R", 1198)] = 32000
+
+
+class Vehicule(object):
+    pass
+
+
+class Car(Vehicule):
+    pass
+
+
+class Moto(Vehicule):
+    pass

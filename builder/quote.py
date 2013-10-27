@@ -5,11 +5,28 @@ from heapq import heappush
 from builder import rules
 from builder.rules.rule import Rule
 from builder.exceptions import NotAllowed
+from builder.rules.vehicules import Vehicule, Car, Moto
 
 
 class Quotes(object):
     def __init__(self, vehicules, driver, contrat):
-        pass
+        self.quotes = []
+        for vehicule in vehicules:
+            quote = Quote(vehicule, driver, contrat)
+            quote.build_quote()
+            self.quotes.append(quote)
+
+    @property
+    def montant_mensuel(self):
+        return sum([q.montant_mensuel for q in self.quotes if q.assurable])
+
+    @property
+    def montant_annuel(self):
+        return sum([q.montant_annuel for q in self.quotes if q.assurable])
+
+    @property
+    def assurable(self):
+        all([q.assurable for q in self.quotes])
 
 
 class Quote(object):
@@ -78,15 +95,3 @@ class Driver(object):
             return today.year - birthday.year - 1
         else:
             return today.year - birthday.year
-
-
-class Vehicule(object):
-    pass
-
-
-class Car(Vehicule):
-    pass
-
-
-class Moto(Vehicule):
-    pass

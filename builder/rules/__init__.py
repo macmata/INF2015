@@ -1,7 +1,10 @@
-from builder.rules import decorators
-from builder.rules.rule import Rule
-from builder.rules.allowed import Allowed
-from builder.rules.create_quote import CreateQuote
-from builder.rules.vehicules import Cars, Motos
+import sys
+import pkgutil
+import inspect
 
-__all__ = ['Rule', 'Allowed', 'CreateQuote', 'decorators', 'Cars', 'Motos']
+from builder.rules.rule import Rule
+
+__all__ = ['Rule']
+for loader, module_name, is_pkg in pkgutil.walk_packages(__path__):
+    __all__.append(module_name)
+    setattr(sys.modules[__name__], module_name, loader.find_module(module_name).load_module(module_name))

@@ -2,12 +2,14 @@ import argparse
 import logging.config
 import logging
 import json
+import sys
+import os
+import inspect
 
-from builder.quote import Quote
-from builder.reader.json import JsonReader
+from builder.quote import Quotes
+from builder.reader.json_reader import JsonReader
 
 logging.config.fileConfig('config.ini')
-
 parser = argparse.ArgumentParser(description='Calculate a an insurance quote \
     for luxury car.')
 parser.add_argument(
@@ -29,9 +31,7 @@ logging.debug('Calculating quote from %s' % input_file)
 
 driver, cars, motos, contrat = JsonReader(input_file).get_data()
 
-quotes = build_qu
-q = Quote(cars[0], motos[0], driver, contrat)
-q.build_quote()
+q = Quotes(cars + motos, driver, contrat)
 
 result = {
     'assurable': q.assurable,
