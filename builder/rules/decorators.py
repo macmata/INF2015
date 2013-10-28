@@ -42,14 +42,14 @@ class older_than(object):
         return wrapped
 
 
-class braket_age(object):
-    def __init__(self, braket_left, braket_right):
-        self.braket_left = braket_left
-        self.braket_right = braket_right
+class bracket_age(object):
+    def __init__(self, bracket_left, bracket_right):
+        self.bracket_left = bracket_left
+        self.bracket_right = bracket_right
 
     def __call__(self, fn):
         def wrapped(obj):
-            if self.braket_left <= obj.quote.driver.age <= self.braket_right:
+            if self.bracket_left <= obj.quote.driver.age <= self.bracket_right:
                 return fn(obj)
         return wrapped
 
