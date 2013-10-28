@@ -79,12 +79,12 @@ class Quote(object):
     @property
     def monthly_amount(self):
         if self.assurable > 0:
-            return round(((self.amount * 1.015) / 12) / 100, 2)
+            return ((self.amount * 1.015) / 12) / 100
 
     @property
     def yearly_amount(self):
         if self.assurable:
-            return round(self.amount / 100, 2)
+            return self.amount / 100
 
 
 class Contract(object):
