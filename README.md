@@ -15,3 +15,7 @@ Le fichier Resultat comporte le resultat de la soumission.
 Pour executer les tests:
 
     python tests
+
+Pour voir le logging du systeme:
+
+    voir le fichier quote.log
