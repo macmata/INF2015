@@ -11,6 +11,6 @@ class ContractRule(Rule):
         if self.quote.contract.length == 3:
             logging.debug("Contrat 3 ans, %.2f$ - 15%% = %.2f$" % (
                 self.quote.amount/100,
-                int(self.quote.amount*0.85)/100
+                self.quote.amount*0.85/100
             ))
-            self.quote.amount = int(self.quote.amount * 0.85)
+            self.quote.amount = self.quote.amount * 0.85

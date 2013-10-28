@@ -21,22 +21,18 @@ class Quotes(object):
             ))
             quote.build_quote()
             self.quotes.append(quote)
+            logging.debug("##Total quote: %.2f", quote.yearly_amount)
+
 
     @property
     def monthly_amount(self):
         if self.assurable:
-            return round(
-                sum([q.monthly_amount for q in self.quotes if q.assurable]),
-                2
-            )
+            return sum([q.monthly_amount for q in self.quotes if q.assurable])
 
     @property
     def yearly_amount(self):
         if self.assurable:
-            return round(
-                sum([q.yearly_amount for q in self.quotes if q.assurable]),
-                2
-            )
+            return sum([q.yearly_amount for q in self.quotes if q.assurable])
 
     @property
     def assurable(self):

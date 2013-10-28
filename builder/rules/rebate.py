@@ -12,4 +12,4 @@ class RebateRule(Rule):
     def rule_ordre_ingenieur(self):
         if self.quote.driver.oiq_member:
             logging.debug("OIQ member, applying 10% rebate")
-            self.quote.amount = int(self.quote.amount * 0.9)
+            self.quote.amount = self.quote.amount * 0.9

@@ -23,7 +23,7 @@ class GeneralRules(Rule):
     def rule_options(self):
         logging.debug("Adding option values")
         self.quote.amount += \
-            int((self.quote.vehicule.option_value * 100) * 0.10)
+            (self.quote.vehicule.option_value * 100) * 0.10
 
     def rule_lives_in(self):
         if self.quote.driver.city in (u'Longueuil', u'Montréal'):
