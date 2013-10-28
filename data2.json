@@ -1,0 +1,44 @@
+{
+    "voitures": [
+    {
+        "annee": 2013,
+        "marque": "Porsche",
+        "modele": "918 Spyder",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": false
+    },
+    {
+        "annee": 2012,
+        "marque": "Ferrari",
+        "modele": "458 Spyder F1",
+        "valeur_des_options": 0,
+        "burinage": "Sherlock",
+        "garage_interieur": false,
+        "systeme_alarme": true
+    }
+    ],
+        "motos": [
+        {
+            "annee": 2013,
+            "marque": "Ducati",
+            "modele": "Diavel Dark",
+            "valeur_des_options": 1000,
+            "burinage": null,
+            "garage_interieur": true,
+            "systeme_alarme": true
+        }
+    ],
+        "conducteur": {
+            "date_de_naissance": "1940-01-15",
+            "province": "Québec",
+            "ville": "Montréal",
+            "sexe": "M",
+            "date_fin_cours_de_conduite": "1948-12-01",
+            "cours_de_conduite_reconnus_par_CAA": false,
+            "premier_contrat": true,
+            "membre_oiq": true 
+        },
+        "duree_contrat": 2
+}
