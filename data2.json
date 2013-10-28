@@ -14,7 +14,7 @@
         "marque": "Ferrari",
         "modele": "458 Spyder F1",
         "valeur_des_options": 0,
-        "burinage": "Sherlock",
+        "burinage": "Sa",
         "garage_interieur": false,
         "systeme_alarme": true
     }
@@ -33,7 +33,7 @@
         "conducteur": {
             "date_de_naissance": "1940-01-15",
             "province": "Québec",
-            "ville": "Montréal",
+            "ville": "brossard",
             "sexe": "M",
             "date_fin_cours_de_conduite": "1948-12-01",
             "cours_de_conduite_reconnus_par_CAA": false,
