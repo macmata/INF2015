@@ -30,8 +30,8 @@ driver, cars, motos, contrat = JsonReader(input_file).get_data()
 q = Quotes(cars + motos, driver, contrat)
 result = {
     'assurable': q.assurable,
-    'montant_annuel': q.montant_annuel,
-    'mensualite': q.montant_mensuel
+    'montant_annuel': q.yearly_amount,
+    'mensualite': q.monthly_amount
     }
 logging.debug("Resultat : %s" % result)
 

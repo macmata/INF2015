@@ -8,9 +8,9 @@ class ContractRule(Rule):
     PRIORITY = 2
 
     def rule_contract_more_than_3_years(self):
-        if self.quote.contrat.duree == 3:
+        if self.quote.contract.length == 3:
             logging.debug("Contrat 3 ans, %.2f$ - 15%% = %.2f$" % (
-                self.quote.montant/100,
-                int(self.quote.montant*0.85)/100
+                self.quote.amount/100,
+                int(self.quote.amount*0.85)/100
             ))
-            self.quote.montant = int(self.quote.montant * 0.85)
+            self.quote.amount = int(self.quote.amount * 0.85)

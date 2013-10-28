@@ -3,7 +3,7 @@ from builder.rules.vehicules import Car, Moto
 
 def man(fn):
     def wrapped(obj):
-        if obj.quote.driver.sexe == 'M':
+        if obj.quote.driver.gender == 'M':
             return fn(obj)
 
     return wrapped
@@ -11,7 +11,7 @@ def man(fn):
 
 def woman(fn):
     def wrapped(obj):
-        if obj.quote.driver.sexe == 'F':
+        if obj.quote.driver.gender == 'F':
             return fn(obj)
     return wrapped
 

@@ -12,9 +12,9 @@ class Allowed(Rule):
 
     def create_vehicule(self):
         return (
-            self.quote.vehicule.annee,
-            self.quote.vehicule.marque,
-            self.quote.vehicule.modele
+            self.quote.vehicule.year,
+            self.quote.vehicule.make,
+            self.quote.vehicule.model
         )
 
 

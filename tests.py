@@ -4,7 +4,7 @@ import os
 import datetime
 
 from builder.reader import json_reader
-from builder.quote import Driver, Car, Contrat, Moto
+from builder.quote import Driver, Car, Contract, Moto
 
 
 class JsonReader(unittest.TestCase):
@@ -64,51 +64,51 @@ class JsonReader(unittest.TestCase):
         reader = json_reader.JsonReader(self.filename)
         car = []
         car = reader.build_car()
-        assert car[0].annee == 2013
-        assert car[0].modele == '918 Spyder'
-        assert car[0].marque == 'Porsche'
-        assert car[0].valeur_des_options == 8000
-        assert car[0].burinage == 'PROACTIF'
-        assert car[0].garage_interieur
-        assert not car[0].systeme_alarme
-        assert car[1].annee == 2012
-        assert car[1].modele == '458 Spyder F1'
-        assert car[1].marque == 'Ferrari'
-        assert car[1].valeur_des_options == 12000
-        assert car[1].burinage == 'Sherlock'
-        assert car[1].garage_interieur
-        assert car[1].systeme_alarme
+        assert car[0].year == 2013
+        assert car[0].model == '918 Spyder'
+        assert car[0].make == 'Porsche'
+        assert car[0].option_value == 8000
+        assert car[0].chiseling == 'PROACTIF'
+        assert car[0].interior_garage
+        assert not car[0].alarm
+        assert car[1].year == 2012
+        assert car[1].model == '458 Spyder F1'
+        assert car[1].make == 'Ferrari'
+        assert car[1].option_value == 12000
+        assert car[1].chiseling == 'Sherlock'
+        assert car[1].interior_garage
+        assert car[1].alarm
 
     def test_motos(self):
         reader = json_reader.JsonReader(self.filename)
         moto = []
         moto = reader.build_moto()
-        assert moto[0].annee == 2013
-        assert moto[0].marque == 'Ducati'
-        assert moto[0].modele == 'Hypermotard SP'
-        assert moto[0].valeur_des_options == 1000
-        assert moto[0].burinage == 'null'
-        assert not moto[0].garage_interieur
-        assert not moto[0].systeme_alarme
+        assert moto[0].year == 2013
+        assert moto[0].make == 'Ducati'
+        assert moto[0].model == 'Hypermotard SP'
+        assert moto[0].option_value == 1000
+        assert moto[0].chiseling == 'null'
+        assert not moto[0].interior_garage
+        assert not moto[0].alarm
 
-    def test_contrat(self):
+    def test_contract(self):
         reader = json_reader.JsonReader(self.filename)
-        contrat = reader.build_contrat()
-        assert contrat.duree == 3
+        contract = reader.build_contract()
+        assert contract.length == 3
 
 
     def test_personne(self):
         reader = json_reader.JsonReader(self.filename)
         driver = reader.build_driver()
 
-        assert driver.date_de_naissance == datetime.datetime(1977,1, 15)
-        assert driver.date_fin_cours_de_conduite == datetime.datetime(2000,12,1)
-        assert driver.ville == 'Montreal'
+        assert driver.birthday == datetime.datetime(1977,1, 15)
+        assert driver.date_end_of_driving_lessons == datetime.datetime(2000,12,01)
+        assert driver.city == 'Montreal'
         assert driver.province == 'Quebec'
-        assert driver.sexe == 'M'
-        assert driver.cours_de_conduite_reconnus_par_CAA
-        assert not driver.premier_contrat
-        assert driver.membre_oiq
+        assert driver.gender == 'M'
+        assert driver.driving_lessons_caa
+        assert not driver.first_contract
+        assert driver.oiq_member
 
     def test_get_data(self):
         reader = json_reader.JsonReader(self.filename)
@@ -116,7 +116,7 @@ class JsonReader(unittest.TestCase):
         assert isinstance(driver, Driver)
         assert isinstance(car[0], Car)
         assert isinstance(car[1], Car)
-        assert isinstance(contrat, Contrat)
+        assert isinstance(contrat, Contract)
         assert isinstance(moto[0], Moto)
 
     def setDown(self):

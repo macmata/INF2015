@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 import json
 from datetime import datetime
-from builder.quote import Car, Driver, Contrat, Moto
+from builder.quote import Car, Driver, Contract, Moto
 
 
 class JsonReader(object):
@@ -14,13 +14,13 @@ class JsonReader(object):
         cars = []
         for car_data in self.data["voitures"]:
             car = Car()
-            car.annee = car_data["annee"]
-            car.marque = car_data["marque"]
-            car.modele = car_data["modele"]
-            car.valeur_des_options = car_data["valeur_des_options"]
-            car.burinage = car_data["burinage"]
-            car.garage_interieur = car_data["garage_interieur"]
-            car.systeme_alarme = car_data["systeme_alarme"]
+            car.year = car_data["annee"]
+            car.make = car_data["marque"]
+            car.model = car_data["modele"]
+            car.option_value = car_data["valeur_des_options"]
+            car.chiseling = car_data["burinage"]
+            car.interior_garage = car_data["garage_interieur"]
+            car.alarm = car_data["systeme_alarme"]
             cars.append(car)
         return cars
 
@@ -28,42 +28,42 @@ class JsonReader(object):
         motos = []
         for moto_data in self.data["motos"]:
             moto = Moto()
-            moto.annee = moto_data["annee"]
-            moto.marque = moto_data["marque"]
-            moto.modele = moto_data["modele"]
-            moto.valeur_des_options = moto_data["valeur_des_options"]
-            moto.burinage = moto_data["burinage"]
-            moto.garage_interieur = moto_data["garage_interieur"]
-            moto.systeme_alarme = moto_data["systeme_alarme"]
+            moto.year = moto_data["annee"]
+            moto.make = moto_data["marque"]
+            moto.model = moto_data["modele"]
+            moto.option_value = moto_data["valeur_des_options"]
+            moto.chiseling = moto_data["burinage"]
+            moto.interior_garage = moto_data["garage_interieur"]
+            moto.alarm = moto_data["systeme_alarme"]
             motos.append(moto)
         return motos
 
     def build_driver(self):
         driver = Driver()
-        driver.date_de_naissance = datetime.strptime(
+        driver.birthday = datetime.strptime(
             self.data["conducteur"]["date_de_naissance"], "%Y-%m-%d"
         )
-        driver.ville = self.data["conducteur"]["ville"]
+        driver.city = self.data["conducteur"]["ville"]
         driver.province = self.data["conducteur"]["province"]
-        driver.sexe = self.data["conducteur"]["sexe"]
-        driver.date_fin_cours_de_conduite = datetime.strptime(
+        driver.gender = self.data["conducteur"]["sexe"]
+        driver.date_end_of_driving_lessons = datetime.strptime(
             self.data["conducteur"]["date_fin_cours_de_conduite"], "%Y-%m-%d"
         )
-        driver.cours_de_conduite_reconnus_par_CAA = \
+        driver.driving_lessons_caa = \
             self.data["conducteur"]["cours_de_conduite_reconnus_par_CAA"]
-        driver.premier_contrat = self.data["conducteur"]["premier_contrat"]
-        driver.membre_oiq = self.data["conducteur"]["membre_oiq"]
+        driver.first_contract = self.data["conducteur"]["premier_contrat"]
+        driver.oiq_member = self.data["conducteur"]["membre_oiq"]
         return driver
 
-    def build_contrat(self):
-        contrat = Contrat()
-        contrat.duree = self.data["duree_contrat"]
-        return contrat
+    def build_contract(self):
+        contract = Contract()
+        contract.length = self.data["duree_contrat"]
+        return contract
 
     def get_data(self):
         return (
             self.build_driver(),
             self.build_car(),
             self.build_moto(),
-            self.build_contrat()
+            self.build_contract()
         )

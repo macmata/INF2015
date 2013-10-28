@@ -8,26 +8,26 @@ from builder.rules.vehicules import Vehicule, Car, Moto
 
 
 class Quotes(object):
-    def __init__(self, vehicules, driver, contrat):
+    def __init__(self, vehicules, driver, contract):
         self.quotes = []
         for vehicule in vehicules:
-            quote = Quote(vehicule, driver, contrat)
+            quote = Quote(vehicule, driver, contract)
             quote.build_quote()
             self.quotes.append(quote)
 
     @property
-    def montant_mensuel(self):
+    def monthly_amount(self):
         if self.assurable:
             return round(
-                sum([q.montant_mensuel for q in self.quotes if q.assurable]),
+                sum([q.monthly_amount for q in self.quotes if q.assurable]),
                 2
             )
 
     @property
-    def montant_annuel(self):
+    def yearly_amount(self):
         if self.assurable:
             return round(
-                sum([q.montant_annuel for q in self.quotes if q.assurable]),
+                sum([q.yearly_amount for q in self.quotes if q.assurable]),
                 2
             )
 
@@ -37,12 +37,11 @@ class Quotes(object):
 
 
 class Quote(object):
-    def __init__(self, vehicule, driver, contrat):
+    def __init__(self, vehicule, driver, contract):
         self.vehicule = vehicule
         self.driver = driver
-        self.contrat = contrat
-        self.montant = 0
-        self.montantTotal = 0
+        self.contract = contract
+        self.amount = 0
 
         self.rules = []
         self.find_rules()
@@ -65,22 +64,21 @@ class Quote(object):
                 _, rule = heappop(self.rules)
                 rule.apply_rules()
         except NotAllowed:
-            self.montant = 0
+            self.amount = 0
             self.assurable = False
-            self.montantTotal = 0
 
     @property
-    def montant_mensuel(self):
+    def monthly_amount(self):
         if self.assurable > 0:
-            return round(((self.montant * 1.015) / 12) / 100, 2)
+            return round(((self.amount * 1.015) / 12) / 100, 2)
 
     @property
-    def montant_annuel(self):
+    def yearly_amount(self):
         if self.assurable:
-            return round(self.montant / 100, 2)
+            return round(self.amount / 100, 2)
 
 
-class Contrat(object):
+class Contract(object):
     pass
 
 
@@ -88,7 +86,7 @@ class Driver(object):
     @property
     def age(self):
         today = date.today()
-        birthday = self.date_de_naissance
+        birthday = self.birthday
 
         if today.month < birthday.month or \
                 (today.month == birthday.month and today.day < birthday.day):
@@ -99,7 +97,7 @@ class Driver(object):
     @property
     def years_experience(self):
         today = date.today()
-        birthday = self.date_fin_cours_de_conduite
+        birthday = self.date_end_of_driving_lessons
 
         if today.month < birthday.month or \
                 (today.month == birthday.month and today.day < birthday.day):
