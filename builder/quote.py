@@ -1,6 +1,8 @@
 import inspect
 from datetime import date
 from heapq import heappush, heappop
+import logging
+
 from builder import rules
 from builder.rules.rule import Rule
 from builder.exceptions import NotAllowed
@@ -12,6 +14,11 @@ class Quotes(object):
         self.quotes = []
         for vehicule in vehicules:
             quote = Quote(vehicule, driver, contract)
+            logging.debug("Vehicule %s %s %s" % (
+                vehicule.make,
+                vehicule.model,
+                vehicule.year
+            ))
             quote.build_quote()
             self.quotes.append(quote)
 
