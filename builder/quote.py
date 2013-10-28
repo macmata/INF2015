@@ -45,6 +45,9 @@ class Quote(object):
         self.montantTotal = 0
 
         self.rules = []
+        self.find_rules()
+
+    def find_rules(self):
         for name, module in inspect.getmembers(rules, inspect.ismodule):
             for name, obj in inspect.getmembers(module, inspect.isclass):
                 if issubclass(obj, Rule) and obj != Rule:
