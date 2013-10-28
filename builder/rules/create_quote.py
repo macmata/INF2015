@@ -14,6 +14,7 @@ class CreateQuote(Rule):
     def rule_woman_21_50_car(self):
         logging.debug("Car Woman, 21 - 40")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.11)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.car
     @decorators.woman
@@ -21,6 +22,7 @@ class CreateQuote(Rule):
     def rule_woman_41_65_car(self):
         logging.debug("Car Woman, 41 - 65")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.09)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.car
     @decorators.woman
@@ -28,6 +30,7 @@ class CreateQuote(Rule):
     def rule_woman_66_75_car(self):
         logging.debug("Car Woman, 66 - 75")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.155)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.car
     @decorators.man
@@ -35,6 +38,7 @@ class CreateQuote(Rule):
     def rule_man_25_35_car(self):
         logging.debug("Car Man, 25 - 35")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.15)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.car
     @decorators.man
@@ -42,6 +46,7 @@ class CreateQuote(Rule):
     def rule_man_36_60_car(self):
         logging.debug("Car Man, 36 - 60")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.12)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.car
     @decorators.man
@@ -49,6 +54,7 @@ class CreateQuote(Rule):
     def rule_man_61_75_car(self):
         logging.debug("Car Man, 61 - 75")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.135)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.moto
     @decorators.woman
@@ -56,7 +62,7 @@ class CreateQuote(Rule):
     def rule_woman_21_50_moto(self):
         logging.debug("Moto Woman, 21 - 40")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.25)
-
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.moto
     @decorators.woman
@@ -64,6 +70,7 @@ class CreateQuote(Rule):
     def rule_woman_41_65_moto(self):
         logging.debug("Moto Woman, 41 - 65")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.23)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.moto
     @decorators.woman
@@ -71,6 +78,7 @@ class CreateQuote(Rule):
     def rule_woman_66_75_moto(self):
         logging.debug("Moto Woman, 66 - 75")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.295)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.moto
     @decorators.man
@@ -78,6 +86,7 @@ class CreateQuote(Rule):
     def rule_man_25_35_moto(self):
         logging.debug("Moto Man, 25 - 35")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.29)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.moto
     @decorators.man
@@ -85,6 +94,7 @@ class CreateQuote(Rule):
     def rule_man_36_60_moto(self):
         logging.debug("Moto Man, 36 - 60")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.26)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
 
     @decorators.moto
     @decorators.man
@@ -92,3 +102,4 @@ class CreateQuote(Rule):
     def rule_man_61_75_moto(self):
         logging.debug("Moto Man, 61 - 75")
         self.quote.amount = int(self.quote.vehicule.value * 100 * 0.275)
+        logging.debug("Quote starting amount: %d", self.quote.amount)
