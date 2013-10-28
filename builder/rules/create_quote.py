@@ -6,7 +6,7 @@ from builder.rules import Rule, decorators
 
 
 class CreateQuote(Rule):
-    PRIORITY = 1
+    PRIORITY = 2
 
     @decorators.car
     @decorators.woman
