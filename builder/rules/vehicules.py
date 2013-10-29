@@ -53,6 +53,17 @@ Cars[(2003, u"Ferrari", u"575M Maranello F1")] = 93000
 Cars[(1993, u"Ferrari", u"348TS Special - Limited Edition")] = 80000
 Cars[(1970, u"Ferrari", u"365 DT 2+2")] = 170000
 Cars[(2013, u"Porsche", u"918 Spyder")] = 845000
+Cars[(2014, u"Ferrari", u"LaFerrari")] = 1300000
+Cars[(2014, u"Lamborghini", u"Reventon")] = 1600000
+Cars[(2014, u"Lamborghini", u"Veneno")] = 3900000
+Cars[(2014, u"Koenigsegg", u"Agera R")] = 1600000
+Cars[(2014, u"Aston Martin", u"One-77")] = 1850000
+Cars[(2014, u"Pagini", u"Zonda Cinque Roadster")] = 1800000
+Cars[(2014, u"Pagini", u"Huayra")] = 1300000
+Cars[(2014, u"Bugatti", u"Veyron Super Sport")] = 2400000
+Cars[(2014, u"Bugatti", u"Veyron Grand Sport Vitesse World Record Edition")
+        ] = 2600000
+Cars[(2014, u"W Motors", u"Lykan HyperSport")] = 3400000
 
 Motos = {}
 Motos[(2013, u"Ducati", u"Diavel Dark")] = (1198.4, 19000)

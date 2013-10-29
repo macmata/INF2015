@@ -58,6 +58,8 @@ class JsonReader(object):
     def build_contract(self):
         contract = Contract()
         contract.length = self.data["duree_contrat"]
+        contract.starting_date = datetime.strptime(
+                self.data["date_debut"], "%Y-%m-%d")
         return contract
 
     def get_data(self):
