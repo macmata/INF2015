@@ -47,6 +47,14 @@ class Allowed(Rule):
             logging.debug("Not allowed, driver not from Quebec")
             raise NotAllowed()
 
+    def rule_vehicule_more_than_million(self):
+        if self.quote.vehicule.value > 1000000:
+            if not (self.quote.vehicule.alarm and \
+                self.quote.vehicule.interior_garage ):
+                logging.debug("Not allowed, vehicule need \
+                       a alarm and a interior garage")
+                raise NotAllowed()
+
     @decorators.younger_than(25)
     @decorators.man
     def rule_25_man(self):

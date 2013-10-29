@@ -1,20 +1,40 @@
 {
+    "date_debut":"2013-09-19"
+    ,
     "voitures": [
     {
-        "annee": 2013,
-        "marque": "Porsche",
-        "modele": "918 Spyder",
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
         "valeur_des_options": 8000,
         "burinage": "PROACTIF",
         "garage_interieur": true,
-        "systeme_alarme": false
+        "systeme_alarme": false 
     },
-    {
+     {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": false,
+        "systeme_alarme": false 
+    },
+     {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": false,
+        "systeme_alarme": true 
+    },
+  {
         "annee": 2012,
         "marque": "Ferrari",
         "modele": "458 Spyder F1",
         "valeur_des_options": 0,
-        "burinage": "Sa",
+        "burinage": "Sherlock",
         "garage_interieur": false,
         "systeme_alarme": true
     }
@@ -23,22 +43,22 @@
         {
             "annee": 2013,
             "marque": "Ducati",
-            "modele": "Diavel Dark",
+            "modele": "Hypermotard SP",
             "valeur_des_options": 1000,
             "burinage": null,
-            "garage_interieur": true,
-            "systeme_alarme": true
+            "garage_interieur": false,
+            "systeme_alarme": false
         }
     ],
         "conducteur": {
-            "date_de_naissance": "1940-01-15",
+            "date_de_naissance": "1987-10-27",
             "province": "Québec",
-            "ville": "brossard",
+            "ville": "Montréal",
             "sexe": "M",
-            "date_fin_cours_de_conduite": "1948-12-01",
-            "cours_de_conduite_reconnus_par_CAA": false,
-            "premier_contrat": true,
-            "membre_oiq": true 
+            "date_fin_cours_de_conduite": "2000-12-01",
+            "cours_de_conduite_reconnus_par_CAA": true,
+            "premier_contrat": false,
+            "membre_oiq": true
         },
-        "duree_contrat": 2
+        "duree_contrat": 3
 }
