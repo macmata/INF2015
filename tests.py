@@ -12,6 +12,8 @@ class JsonReader(unittest.TestCase):
     def setUp(self):
         content = """
         {
+        "date_debut": "1997-03-12"
+        ,
         "voitures": [
         {
         "annee": 2013,
@@ -95,9 +97,9 @@ class JsonReader(unittest.TestCase):
         reader = json_reader.JsonReader(self.filename)
         contract = reader.build_contract()
         assert contract.length == 3
+        assert contract.starting_date == datetime.datetime(1997,03,12)
 
-
-    def test_personne(self):
+    def test_driver(self):
         reader = json_reader.JsonReader(self.filename)
         driver = reader.build_driver()
 
