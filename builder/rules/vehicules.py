@@ -83,6 +83,7 @@ class Vehicule(object):
             vehicule_data.append({u"marque": moto[1], u"modele": moto[2], u"annee": moto[0], u"type": u"moto"}) 
         data = {u"assurables": vehicule_data} 
         json_file = json.dumps(data, indent=4)
+        print(json_file)
 
 
 class Car(Vehicule):
