@@ -2,6 +2,15 @@
     "date_debut":"2013-09-19"
     ,
     "voitures": [
+                    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
     {
         "annee": 2014,
         "marque": "Bugatti",
@@ -12,8 +21,134 @@
         "systeme_alarme": true 
     },
     {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+   {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valeur_des_options": 8000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true 
+    },
+    {
         "annee": 2012,
-        "marque": "Ferrari",
+        "marque": "FFerrari",
         "modele": "458 Spyder F1",
         "valeur_des_options": 0,
         "burinage": "Sherlock",
