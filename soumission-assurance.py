@@ -26,10 +26,9 @@ parser.add_argument(
     help='Input file to read the quote information/'
 )
 parser.add_argument(
-    'output', metavar='output', type=str, nargs="?",
+    'output', metavar='output', type=str, nargs=1,
     help='Output file to write the quote to.'
 )
-parser.add_argument(nargs='-L')
 args = parser.parse_args()
 
 input_file = args.input[0]
