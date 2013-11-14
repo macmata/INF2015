@@ -8,20 +8,29 @@ import inspect
 
 from builder.quote import Quotes
 from builder.reader.json_reader import JsonReader
+from builder.rules import vehicules
 
 logging.config.fileConfig('config.ini')
 
-parser = argparse.ArgumentParser(description='Calculate a an insurance quote \
-    for luxury car.')
+if sys.argv[1] == '-L':
+    vehicule_list = vehicules.show_list()
+    print vehicule_list
+    exit(1)
+
+
+parser = argparse.ArgumentParser(description= \
+        'Calculate a an insurance quote for luxury car.')
 parser.add_argument(
-    'input', metavar='input', type=str, nargs=1,
+    'input',  type=str, nargs=1,
     help='Input file to read the quote information/'
 )
 parser.add_argument(
-    'output', metavar='output', type=str, nargs=1,
+    'output', metavar='output', type=str, nargs="?",
     help='Output file to write the quote to.'
 )
+parser.add_argument(nargs='-L')
 args = parser.parse_args()
+
 input_file = args.input[0]
 output_file = args.output[0]
 
