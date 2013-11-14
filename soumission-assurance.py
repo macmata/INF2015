@@ -12,9 +12,10 @@ from builder.rules import vehicules
 
 logging.config.fileConfig('config.ini')
 
-if sys.argv[1] == '-L':
+if sys.argv[1] == '-L' and len(sys.argv) == 3:
     vehicule_list = vehicules.show_list()
-    print vehicule_list
+    with open(sys.argv[2], 'w') as f:
+        f.write(vehicule_list)
     exit(1)
 
 
