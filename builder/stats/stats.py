@@ -75,7 +75,7 @@ class bdstats(objet):
         cursor = self.conn.cursor()
         query = """
             SELECT count(*) FROM vehicule
-            INNER JOIN soumission ON soumission.id = vehicul.soumission
+            INNER JOIN soumission ON soumission.id = vehicule.soumission
 
             WHERE soumission.assurable = 0 and type = 'car'
         """
@@ -106,11 +106,27 @@ class bdstats(objet):
 
             query = """
                 SELECT count(*) FROM vehicule
-                INNER JOIN soumission ON soumission.id = vehicul.soumission
+                INNER JOIN soumission ON soumission.id = vehicule.soumission
 
                 WHERE soumission.marque = ?
             """
-            cursor.execute(query, make)
+            cursor.execute(query, (make,))
             stats.append(make, cursor.fetchone())
 
         return stats
+
+    def insert_quote(self, gender, insured):
+        cursor = self.conn.cursor()
+
+        query = "INSERT INTO soumission (gender, assurable) VALUES(?, ?)"
+        cursor.execute(query, (gender, insured))
+        return cursor.lastrowid
+
+    def insert_vehicule(self, quote_id, make, vehicule_type):
+        cursor = self.conn.cursor()
+
+        query = "INSERT INTO vehicule (marque, soumission, type) VALUES(?, ?, ?)"
+        cursor.execute(query, (make, quote_id, vehicule_type))
+        return cursor.lastrowid
+
+
