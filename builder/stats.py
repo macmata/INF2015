@@ -18,7 +18,7 @@ class Stats:
         cursor = self.connection.cursor()
         cursor.execute('''
             CREATE TABLE quotes
-            (id INTEGER PRIMARY KEY, gender TEXT, insured int);
+            (id INTEGER PRIMARY KEY, gender CHAR(1), insured TINYINT);
         ''')
         cursor.execute('''
             CREATE INDEX quotes_gender_index ON quotes (gender);
@@ -30,8 +30,8 @@ class Stats:
         cursor.execute('''
             CREATE TABLE vehicules
             (
-                id INTEGER PRIMARY KEY, make TEXT,
-                quote_id INTEGER REFERENCES quotes (id), type TEXT
+                id INTEGER PRIMARY KEY, make VARCHAR(30),
+                quote_id INTEGER REFERENCES quotes (id), type VARCHAR(4)
             )
         ''')
         cursor.execute('''
