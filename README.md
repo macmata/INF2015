@@ -14,7 +14,7 @@ Le fichier Resultat comporte le resultat de la soumission.
 
 Pour executer les tests:
 
-    python tests
+    python -m unittest tests
 
 Pour voir le logging du systeme:
 
