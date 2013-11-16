@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import datetime
 from builder.rules.vehicules import Car, Moto
 
 
@@ -76,8 +76,8 @@ class braket_date(object):
     def __call__(self, fn):
         def wrapped(obj):
             starting_date = obj.quote.contract.starting_date
-            left_date = date(starting_date.year, self.month_l, self.day_l)
-            right_date = date(starting_date.year, self.month_r, self.day_r)
+            left_date = datetime(starting_date.year, self.month_l, self.day_l)
+            right_date = datetime(starting_date.year, self.month_r, self.day_r)
             if left_date <= starting_date <= right_date:
                 return fn(obj)
         return wrapped

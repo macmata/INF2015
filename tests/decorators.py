@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 import os
-import datetime
+from datetime import datetime, date
 
 from builder.quote import Quotes
 from tests.mock import mock_car, mock_moto, mock_contract, mock_driver
@@ -15,9 +15,9 @@ class SuccessException(Exception):
 class Decorators(unittest.TestCase):
 
     def setUp(self):
-        self.today = datetime.date.today()
+        self.today = date.today()
         self.driver = mock_driver(
-            datetime.datetime(
+            datetime(
                 self.today.year - 51,
                 self.today.month,
                 self.today.day
@@ -25,7 +25,7 @@ class Decorators(unittest.TestCase):
             "Montréal",
             "Québec",
             "M",
-            datetime.date(2006, 1, 1),
+            date(2006, 1, 1),
             True,
             True,
             True,
@@ -53,7 +53,7 @@ class Decorators(unittest.TestCase):
 
         self.contract = mock_contract(
             3,
-            datetime.date(2013, 11, 16)
+            datetime(2013, 11, 16)
         )
 
 
@@ -119,14 +119,14 @@ class Decorators(unittest.TestCase):
         with self.assertRaises(SuccessException):
             testing_older_than(self.mock_obj)
 
-        self.mock_obj.quote.driver.birthday = datetime.datetime(
+        self.mock_obj.quote.driver.birthday = datetime(
             self.today.year - 49,
             self.today.month,
             self.today.day
         )
         testing_older_than(self.mock_obj)
 
-        self.mock_obj.quote.driver.birthday = datetime.datetime(
+        self.mock_obj.quote.driver.birthday = datetime(
             self.today.year - 51,
             self.today.month,
             self.today.day
@@ -142,7 +142,7 @@ class Decorators(unittest.TestCase):
         with self.assertRaises(SuccessException):
             testing_bracket_age(self.mock_obj)
 
-        self.mock_obj.quote.driver.birthday = datetime.datetime(
+        self.mock_obj.quote.driver.birthday = datetime(
             self.today.year - 45,
             self.today.month,
             self.today.day
@@ -150,7 +150,7 @@ class Decorators(unittest.TestCase):
         with self.assertRaises(SuccessException):
             testing_bracket_age(self.mock_obj)
 
-        self.mock_obj.quote.driver.birthday = datetime.datetime(
+        self.mock_obj.quote.driver.birthday = datetime(
             self.today.year - 55,
             self.today.month,
             self.today.day
@@ -158,14 +158,14 @@ class Decorators(unittest.TestCase):
         with self.assertRaises(SuccessException):
             testing_bracket_age(self.mock_obj)
 
-        self.mock_obj.quote.driver.birthday = datetime.datetime(
+        self.mock_obj.quote.driver.birthday = datetime(
             self.today.year - 56,
             self.today.month,
             self.today.day
         )
         testing_bracket_age(self.mock_obj)
 
-        self.mock_obj.quote.driver.birthday = datetime.datetime(
+        self.mock_obj.quote.driver.birthday = datetime(
             self.today.year - 44,
             self.today.month,
             self.today.day
@@ -179,7 +179,7 @@ class Decorators(unittest.TestCase):
 
         testing_younger_than(self.mock_obj)
 
-        self.mock_obj.quote.driver.birthday = datetime.datetime(
+        self.mock_obj.quote.driver.birthday = datetime(
             self.today.year - 50,
             self.today.month,
             self.today.day
@@ -187,7 +187,7 @@ class Decorators(unittest.TestCase):
         with self.assertRaises(SuccessException):
             testing_younger_than(self.mock_obj)
 
-        self.mock_obj.quote.driver.birthday = datetime.datetime(
+        self.mock_obj.quote.driver.birthday = datetime(
             self.today.year - 52,
             self.today.month,
             self.today.day
@@ -201,17 +201,17 @@ class Decorators(unittest.TestCase):
 
         testing_bracket_date(self.mock_obj)
 
-        self.mock_obj.quote.contract.starting_date = datetime.date(2013, 1, 1)
+        self.mock_obj.quote.contract.starting_date = datetime(2013, 1, 1)
         with self.assertRaises(SuccessException):
             testing_bracket_date(self.mock_obj)
-        self.mock_obj.quote.contract.starting_date = datetime.date(2013, 6, 1)
-        with self.assertRaises(SuccessException):
-            testing_bracket_date(self.mock_obj)
-
-        self.mock_obj.quote.contract.starting_date = datetime.date(2013, 2, 15)
+        self.mock_obj.quote.contract.starting_date = datetime(2013, 6, 1)
         with self.assertRaises(SuccessException):
             testing_bracket_date(self.mock_obj)
 
+        self.mock_obj.quote.contract.starting_date = datetime(2013, 2, 15)
+        with self.assertRaises(SuccessException):
+            testing_bracket_date(self.mock_obj)
 
-        self.mock_obj.quote.contract.starting_date = datetime.date(2013, 6, 2)
+
+        self.mock_obj.quote.contract.starting_date = datetime(2013, 6, 2)
         testing_bracket_date(self.mock_obj)
