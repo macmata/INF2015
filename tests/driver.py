@@ -29,12 +29,7 @@ class Driver(unittest.TestCase):
         )
 
     def test_age(self):
-        assert self.driver.age() == 51
-            
-    
+        assert self.driver.age == 51
+
     def test_years_experience(self):
-        assert self.driver.years_experience() == 5
-
-
-if __name__ == '__main__':
-    unittest.main()
+        assert self.driver.years_experience == 5
