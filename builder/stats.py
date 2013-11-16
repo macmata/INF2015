@@ -167,7 +167,7 @@ class Stats:
             "nombre_de_vehicules": self.get_total_vehicules(),
             "nombre_de_voitures_assurables": self.get_total_car_insured(),
             "nombre_de_motos_assurables": self.get_total_moto_insured(),
-            "vehicules_par_marques": [
+            "vehicules_par_marque": [
                 dict((("marque", r[0]), ("nombre", r[1])))
                     for r in self.get_total_vehicules_by_make()
             ]
