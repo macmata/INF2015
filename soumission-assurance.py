@@ -35,8 +35,8 @@ if args.L:
     args.L.close()
     exit(0)
 
-input_file = args.input[0]
-output_file = args.output[0]
+input_file = args.input
+output_file = args.output
 
 logging.debug('Calculating quote from %s' % input_file)
 driver, cars, motos, contrat = JsonReader(input_file).get_data()
