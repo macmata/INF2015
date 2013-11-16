@@ -18,13 +18,32 @@ class Stats:
         cursor = self.connection.cursor()
         cursor.execute('''
             CREATE TABLE quotes
-            (id INTEGER PRIMARY KEY, gender TEXT, insured int)
+            (id INTEGER PRIMARY KEY, gender TEXT, insured int);
+        ''')
+        cursor.execute('''
+            CREATE INDEX quotes_gender_index ON quotes (gender);
+        ''')
+        cursor.execute('''
+            CREATE INDEX quotes_insured_index ON quotes (insured);
         ''')
 
         cursor.execute('''
-                CREATE TABLE vehicules
-                (id INTEGER PRIMARY KEY, make TEXT, quote_id INTEGER REFERENCES quotes (id), type TEXT)
+            CREATE TABLE vehicules
+            (
+                id INTEGER PRIMARY KEY, make TEXT,
+                quote_id INTEGER REFERENCES quotes (id), type TEXT
+            )
         ''')
+        cursor.execute('''
+            CREATE INDEX vehicules_make_index ON vehicules (make);
+        ''')
+        cursor.execute('''
+            CREATE INDEX vehicules_quote_index ON vehicules (quote_id);
+        ''')
+        cursor.execute('''
+            CREATE INDEX vehicules_type_index ON vehicules (type);
+        ''')
+        self.connection.commit()
 
     def get_total_quotes(self):
         cursor = self.connection.cursor()
