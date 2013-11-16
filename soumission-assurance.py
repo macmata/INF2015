@@ -10,6 +10,9 @@ import json
 from builder.quote import Quotes
 from builder.reader.json_reader import JsonReader
 from builder.rules import vehicules
+from builder.stats import Stats
+
+stats = Stats('stats.sqlite')
 
 logging.config.fileConfig('config.ini')
 
@@ -27,6 +30,10 @@ parser.add_argument(
     '-L', type=argparse.FileType('w'), help='Show the list of vehicues',
     metavar='outfile'
 )
+parser.add_argument(
+    '-S', type=argparse.FileType('w'), help='Returns some statistics',
+    metavar='outfile'
+)
 
 args = parser.parse_args()
 if args.L:
@@ -34,6 +41,13 @@ if args.L:
     args.L.write(json_data)
     args.L.close()
     exit(0)
+
+if args.S:
+    print "Do some stats"
+    print stats.get_total_vehicules_by_make()
+
+    exit(0)
+
 
 input_file = args.input
 output_file = args.output
