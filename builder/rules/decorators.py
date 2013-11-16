@@ -64,3 +64,19 @@ class younger_than(object):
                 return fn(obj)
 
         return wrapped
+
+class braket_date(object):
+    def __init_(self, month_l, day_l, month_r, day_r):
+        self.month_l = month_l
+        self.month_r = month_r
+        self.day_l = day_l
+        self.day_r = day_r
+
+    def __call__(self, fn):
+        def wrapped(obj):
+            date =obj.quote.contract.startin_date
+            if self.month_l <= date.month <= self.month_r:
+                if self.day_l <= date.day <= self.day_r:
+                    return fn(obj)
+        return wrapped
+
