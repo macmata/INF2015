@@ -74,7 +74,7 @@ class braket_date(object):
 
     def __call__(self, fn):
         def wrapped(obj):
-            date =obj.quote.contract.startin_date
+            date = obj.quote.contract.starting_date
             if self.month_l <= date.month <= self.month_r:
                 if self.day_l <= date.day <= self.day_r:
                     return fn(obj)
