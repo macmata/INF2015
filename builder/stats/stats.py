@@ -1,14 +1,9 @@
-#from quote import Quote
-
 from builder.rules.vehicules import Cars, Motos
 
 import sqlite3
 import os
 
-
-
-
-class bdstats(objet):
+class Stats(objet):
     def __init__(self,db_file):
 
         if os.path.exists(db_file):
@@ -23,56 +18,50 @@ class bdstats(objet):
 
         cursor.execute('''create TABLE vehicules (id INTEGER PRIMARY KEY,marque TEXT, soumission INTEGER REFERENCES SOUMISSION (id), type TEXT)''')
 
-    def table_commit(self):
-        connection.commit()
-
-    def table_close(self,connection):
-        connection.close()
-
     def get_total_quotes(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
         query = "SELECT count(*) FROM soumission"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
 
     def get_quotes_not_insured(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
         query = "SELECT count(*) FROM soumission WHERE assurable = 0"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
 
     def get_quotes_insured(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
         query = "SELECT count(*) FROM soumission WHERE assurable != 0"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
 
     def get_quotes_man(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
         query = "SELECT count(*) FROM soumission WHERE gender = 'M'"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
 
     def get_quotes_woman(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
         query = "SELECT count(*) FROM soumission WHERE gender = 'F'"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
 
     def get_total_vehicules(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
         query = "SELECT count(*) FROM vehicule"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
 
     def get_total_car_insured(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
         query = """
             SELECT count(*) FROM vehicule
             INNER JOIN soumission ON soumission.id = vehicule.soumission
@@ -84,7 +73,7 @@ class bdstats(objet):
         return result[0]
 
     def get_total_moto_insured(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
         query = """
             SELECT count(*) FROM vehicule
             INNER JOIN soumission ON soumission.id = vehicule.soumission
@@ -96,7 +85,7 @@ class bdstats(objet):
         return result[0]
 
     def get_total_vehicules_by_make(self):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
 
         stats = []
         makes = set()
@@ -116,17 +105,19 @@ class bdstats(objet):
         return stats
 
     def insert_quote(self, gender, insured):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
 
         query = "INSERT INTO soumission (gender, assurable) VALUES(?, ?)"
         cursor.execute(query, (gender, insured))
+        self.connection.commit()
         return cursor.lastrowid
 
     def insert_vehicule(self, quote_id, make, vehicule_type):
-        cursor = self.conn.cursor()
+        cursor = self.connection.cursor()
 
         query = "INSERT INTO vehicule (marque, soumission, type) VALUES(?, ?, ?)"
         cursor.execute(query, (make, quote_id, vehicule_type))
+        self.connection.commit()
         return cursor.lastrowid
 
 
