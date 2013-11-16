@@ -37,7 +37,7 @@ class older_than(object):
 
     def __call__(self, fn):
         def wrapped(obj):
-            if obj.quote.driver.age > self.age:
+            if obj.quote.driver.age >= self.age:
                 return fn(obj)
 
         return wrapped

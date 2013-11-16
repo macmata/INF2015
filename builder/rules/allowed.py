@@ -48,7 +48,7 @@ class Allowed(Rule):
             raise NotAllowed()
 
     def rule_vehicule_more_than_million(self):
-        if self.quote.vehicule.value > 1000000:
+        if self.quote.vehicule.value >= 1000000:
             if not (self.quote.vehicule.alarm and \
                 self.quote.vehicule.interior_garage ):
                 logging.debug("Not allowed, vehicule need \
@@ -68,6 +68,6 @@ class Allowed(Rule):
         raise NotAllowed()
 
     @decorators.older_than(75)
-    def rule_genraise(self):
+    def rule_older_75(self):
         logging.debug("Not allowed, older than 75")
         raise NotAllowed()

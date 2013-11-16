@@ -1,3 +1,4 @@
 from decorators import Decorators
+from rules import Allowed
 
-__all__ = ('Decorators',)
+__all__ = ('Decorators', 'Allowed')

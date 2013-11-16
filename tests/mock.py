@@ -12,7 +12,7 @@ def mock_driver(
     driver.date_end_of_driving_lessons = date_end_of_driving_lessons
     driver.driving_lessons_caa = driving_lessons_caa
     driver.first_contract = first_contract
-    driver.oiq = oiq_member
+    driver.oiq_member = oiq_member
 
     return driver
 
