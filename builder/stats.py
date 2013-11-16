@@ -93,7 +93,7 @@ class Stats:
             SELECT count(*) FROM vehicules
             INNER JOIN quotes ON quotes.id = vehicules.quote_id
 
-            WHERE quotes.insured = 0 and type = 'car'
+            WHERE quotes.insured != 0 and type = 'car'
         """
         cursor.execute(query)
         result = cursor.fetchone()
@@ -105,7 +105,7 @@ class Stats:
             SELECT count(*) FROM vehicules
             INNER JOIN quotes ON quotes.id = vehicules.quote_id
 
-            WHERE quotes.insured = 0 and type = 'moto'
+            WHERE quotes.insured != 0 and type = 'moto'
         """
         cursor.execute(query)
         result = cursor.fetchone()
