@@ -1,4 +1,4 @@
-from builder.rules.vehicules import Cars, Motos
+from builder.rules.vehicules import Cars, Motos, Car, Moto
 
 import sqlite3
 import os
@@ -35,14 +35,14 @@ class Stats:
 
     def get_quotes_not_insured(self):
         cursor = self.connection.cursor()
-        query = "SELECT count(*) FROM quotes WHERE assurable = 0"
+        query = "SELECT count(*) FROM quotes WHERE insured = 0"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
 
     def get_quotes_insured(self):
         cursor = self.connection.cursor()
-        query = "SELECT count(*) FROM quotes WHERE assurable != 0"
+        query = "SELECT count(*) FROM quotes WHERE insured != 0"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
@@ -74,7 +74,7 @@ class Stats:
             SELECT count(*) FROM vehicules
             INNER JOIN quotes ON quotes.id = vehicules.quote_id
 
-            WHERE quotes.assurable = 0 and type = 'car'
+            WHERE quotes.insured = 0 and type = 'car'
         """
         cursor.execute(query)
         result = cursor.fetchone()
@@ -86,7 +86,7 @@ class Stats:
             SELECT count(*) FROM vehicules
             INNER JOIN quotes ON quotes.id = vehicules.quote_id
 
-            WHERE quotes.assurable = 0 and type = 'moto'
+            WHERE quotes.insured = 0 and type = 'moto'
         """
         cursor.execute(query)
         result = cursor.fetchone()
@@ -112,10 +112,19 @@ class Stats:
 
         return stats
 
+    def insert_from_quotes(self, quotes):
+        quote_id = self.insert_quote(quotes.quotes[0].driver.gender, quotes.assurable)
+        for quote in quotes.quotes:
+            if isinstance(quote.vehicule, Car):
+                vehicule_type = "car"
+            else:
+                vechicule_type = "moto"
+            self.insert_vehicule(quote_id, quote.vehicule.make, vehicule_type)
+
     def insert_quote(self, gender, insured):
         cursor = self.connection.cursor()
 
-        query = "INSERT INTO quotes (gender, assurable) VALUES(?, ?)"
+        query = "INSERT INTO quotes (gender, insured) VALUES(?, ?)"
         cursor.execute(query, (gender, insured))
         self.connection.commit()
         return cursor.lastrowid
@@ -123,9 +132,24 @@ class Stats:
     def insert_vehicule(self, quote_id, make, vehicule_type):
         cursor = self.connection.cursor()
 
-        query = "INSERT INTO vehicules (make, quotes, type) VALUES(?, ?, ?)"
+        query = "INSERT INTO vehicules (make, quote_id, type) VALUES(?, ?, ?)"
         cursor.execute(query, (make, quote_id, vehicule_type))
         self.connection.commit()
         return cursor.lastrowid
 
-
+    def return_all_stats(self):
+        return {
+            "nombre_de_soumissions": self.get_total_quotes(),
+            "nombre_de_soumissions_non_assurables":
+                self.get_quotes_not_insured(),
+            "nombre_de_soumissions_assurables": self.get_quotes_insured(),
+            "nombre_de_soumissions_hommes": self.get_quotes_man(),
+            "nombre_de_soumissions_femmes": self.get_quotes_woman(),
+            "nombre_de_vehicules": self.get_total_vehicules(),
+            "nombre_de_voitures_assurables": self.get_total_car_insured(),
+            "nombre_de_motos_assurables": self.get_total_moto_insured(),
+            "vehicules_par_marques": [
+                dict((("marque", r[0]), ("nombre", r[1])))
+                    for r in self.get_total_vehicules_by_make()
+            ]
+        }

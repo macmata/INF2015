@@ -37,17 +37,16 @@ parser.add_argument(
 
 args = parser.parse_args()
 if args.L:
-    json_data = json.dumps(vehicules.return_list_of_vehicules(),indent=4)
+    json_data = json.dumps(vehicules.return_list_of_vehicules(), indent=4)
     args.L.write(json_data)
     args.L.close()
     exit(0)
 
 if args.S:
-    print "Do some stats"
-    print stats.get_total_vehicules_by_make()
-
+    json_data = json.dumps(stats.return_all_stats(), indent=4)
+    args.S.write(json_data)
+    args.S.close()
     exit(0)
-
 
 input_file = args.input
 output_file = args.output
@@ -55,6 +54,7 @@ output_file = args.output
 logging.debug('Calculating quote from %s' % input_file)
 driver, cars, motos, contrat = JsonReader(input_file).get_data()
 q = Quotes(cars + motos, driver, contrat)
+stats.insert_from_quotes(q)
 result = {
     'assurable': q.assurable,
     'montant_annuel': q.yearly_amount,
