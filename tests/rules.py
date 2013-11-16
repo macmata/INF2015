@@ -8,7 +8,7 @@ from builder.exceptions import NotAllowed
 
 from tests.mock import mock_car, mock_moto, mock_contract, mock_driver
 
-from builder.rules import allowed
+from builder.rules import allowed, contract
 
 class SuccessException(Exception):
     pass
@@ -190,3 +190,71 @@ class Allowed(unittest.TestCase):
             self.rule_car.rule_older_75()
 
 
+class Contract(unittest.TestCase):
+    def setUp(self):
+        self.today = date.today()
+        self.driver = mock_driver(
+            datetime(
+                self.today.year - 51,
+                self.today.month,
+                self.today.day
+            ),
+            u"Montréal",
+            u"Québec",
+            "M",
+            date(2006, 1, 1),
+            True,
+            True,
+            True,
+        )
+        self.vehicules = (
+            mock_car(
+                2014,
+                "Porsche",
+                "Panamera",
+                8000,
+                "Sherlock",
+                True,
+                True
+            ),
+            mock_moto(
+                2013,
+                "Ducati",
+                "Diavel Dark",
+                1500,
+                "Sherlock",
+                True,
+                True
+            )
+        )
+
+        self.contract = mock_contract(
+            2,
+            datetime(2013, 11, 16)
+        )
+
+
+        self.quotes = Quotes(self.vehicules, self.driver, self.contract)
+
+        self.contract = contract.ContractRule(self.quotes.quotes[0])
+
+    def test_rule_contract_more_than_3_years(self):
+        value = self.contract.quote.vehicule.value
+        self.contract.rule_contract_more_than_3_years()
+        assert self.contract.quote.vehicule.value == value
+
+        self.contract.quote.contract.length = 1
+        self.contract.rule_contract_more_than_3_years()
+        assert self.contract.quote.vehicule.value == value
+
+        self.contract.quote.contract.length = 2
+        self.contract.rule_contract_more_than_3_years()
+        assert self.contract.quote.vehicule.value == value
+
+        self.contract.quote.contract.length = 3
+        self.contract.rule_contract_more_than_3_years()
+        assert self.contract.quote.vehicule.value == value * 0.85
+
+        self.contract.quote.contract.length = 4
+        self.contract.rule_contract_more_than_3_years()
+        assert self.contract.quote.vehicule.value == value * 0.85
