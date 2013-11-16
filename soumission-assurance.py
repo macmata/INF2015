@@ -30,7 +30,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 if args.L:
-    json_data = json.dumps(vehicules.return_list_of_vehicules())
+    json_data = json.dumps(vehicules.return_list_of_vehicules(),indent=4)
     args.L.write(json_data)
     args.L.close()
     exit(0)
