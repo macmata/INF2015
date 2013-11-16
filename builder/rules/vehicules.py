@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-import json
-
 Cars = {}
 Cars[(2014, u"Porsche", u"Boxter")] = 60000
 Cars[(2014, u"Porsche", u"Boxter S")] = 72000
@@ -73,17 +71,16 @@ Motos[(2013, u"Ducati", u"Monster 1100 Evo")] = (1078, 13500)
 Motos[(2013, u"Ducati", u"Streetfighter 848")] = (849, 14300)
 Motos[(2013, u"Ducati", u"Superbike 1199 Panigale R")] = (1198, 32000)
 
-def show_list():
-    vehicule_data = [] 
+def return_list_of_vehicules():
+    vehicule_data = []
     for car in Cars:
         vehicule_data.append({u"marque": car[1], u"modele":car[2],\
                 u"annee": car[0], u"type": u"voiture"})
     for moto in Motos:
         vehicule_data.append({u"marque": moto[1], u"modele": moto[2],\
-                u"annee": moto[0], u"type": u"moto"}) 
-    data = {u"assurables": vehicule_data} 
-    json_file = json.dumps(data, indent=4)
-    return json_file
+                u"annee": moto[0], u"type": u"moto"})
+    data = {u"assurables": vehicule_data}
+    return data
 
 
 class Vehicule(object):

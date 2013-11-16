@@ -5,6 +5,7 @@ import json
 import sys
 import os
 import inspect
+import json
 
 from builder.quote import Quotes
 from builder.reader.json_reader import JsonReader
@@ -12,24 +13,27 @@ from builder.rules import vehicules
 
 logging.config.fileConfig('config.ini')
 
-if sys.argv[1] == '-L' and len(sys.argv) == 3:
-    vehicule_list = vehicules.show_list()
-    with open(sys.argv[2], 'w') as f:
-        f.write(vehicule_list)
-    exit(1)
-
-
 parser = argparse.ArgumentParser(description= \
         'Calculate a an insurance quote for luxury car.')
 parser.add_argument(
-    'input',  type=str, nargs=1,
-    help='Input file to read the quote information/'
+    'input',  type=str, nargs='?',
+    help='Input file to read the quote information.'
 )
 parser.add_argument(
-    'output', metavar='output', type=str, nargs=1,
+    'output', metavar='output', type=str, nargs='?',
     help='Output file to write the quote to.'
 )
+parser.add_argument(
+    '-L', type=argparse.FileType('w'), help='Show the list of vehicues',
+    metavar='outfile'
+)
+
 args = parser.parse_args()
+if args.L:
+    json_data = json.dumps(vehicules.return_list_of_vehicules())
+    args.L.write(json_data)
+    args.L.close()
+    exit(0)
 
 input_file = args.input[0]
 output_file = args.output[0]
