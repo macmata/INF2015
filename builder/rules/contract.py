@@ -14,3 +14,5 @@ class ContractRule(Rule):
                 self.quote.vehicule.value*0.85
             ))
             self.quote.vehicule.value = self.quote.vehicule.value * 0.85
+
+
