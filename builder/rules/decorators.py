@@ -66,7 +66,7 @@ class younger_than(object):
         return wrapped
 
 class braket_date(object):
-    def __init_(self, month_l, day_l, month_r, day_r):
+    def __init__(self, month_l, day_l, month_r, day_r):
         self.month_l = month_l
         self.month_r = month_r
         self.day_l = day_l
