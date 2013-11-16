@@ -21,7 +21,6 @@ class Quotes(object):
             ))
             quote.build_quote()
             self.quotes.append(quote)
-            logging.debug("##Total quote: %.2f", quote.yearly_amount)
 
 
     @property
