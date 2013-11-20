@@ -119,7 +119,6 @@ class Stats:
         for _, make, _ in Cars.keys() + Motos.keys():
             makes.add(make)
         for make in makes:
-
             query = """
                 SELECT count(*) FROM vehicules
                 INNER JOIN quotes ON quotes.id = vehicules.quote_id
@@ -127,7 +126,9 @@ class Stats:
                 WHERE vehicules.make = ? AND quotes.insured != 0
             """
             cursor.execute(query, (make,))
-            stats.append((make, cursor.fetchone()[0]))
+            total = cursor.fetchone()[0]
+            if total > 0:
+                stats.append((make, total))
 
         return stats
 
