@@ -1,0 +1,26 @@
+{
+  "voitures": [
+    {
+      "annee": 2014,
+      "marque": "Pagani",
+      "modele": "Huayra",
+      "valeur_des_options": 0,
+      "burinage": "Sherlock",
+      "garage_interieur": false,
+      "systeme_alarme": true
+    }
+  ],
+  "motos": [],
+  "conducteur": {
+    "date_de_naissance": "1981-12-15",
+    "province": "Québec",
+    "ville": "Longueuil",
+    "sexe": "F",
+    "date_fin_cours_de_conduite": "2008-03-01",
+    "cours_de_conduite_reconnus_par_CAA": true,
+    "premier_contrat": false,
+    "membre_oiq": false
+  },
+  "duree_contrat": 2,
+  "date_debut": "2014-02-25"
+}

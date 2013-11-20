@@ -1,0 +1,81 @@
+{
+  "voitures": [
+    {
+      "annee": 2014,
+      "marque": "Ferrari",
+      "modele": "LaFerrari",
+      "valeur_des_options": 0,
+      "burinage": "Sherlock",
+      "garage_interieur": true,
+      "systeme_alarme": true
+    },
+    {
+      "annee": 2014,
+      "marque": "Lamborghini",
+      "modele": "Veneno",
+      "valeur_des_options": 20000,
+      "burinage": "Sherlock",
+      "garage_interieur": true,
+      "systeme_alarme": true
+    },
+    {
+      "annee": 2014,
+      "marque": "W Motors",
+      "modele": "Lykan HyperSport",
+      "valeur_des_options": 0,
+      "burinage": "Sherlock",
+      "garage_interieur": true,
+      "systeme_alarme": true
+    },
+    {
+      "annee": 2014,
+      "marque": "Porsche",
+      "modele": "911 GT3",
+      "valeur_des_options": 12000,
+      "burinage": "Sherlock",
+      "garage_interieur": true,
+      "systeme_alarme": true
+    },
+    {
+      "annee": 2014,
+      "marque": "Porsche",
+      "modele": "911 Carrera 4S",
+      "valeur_des_options": 30000,
+      "burinage": "Sherlock",
+      "garage_interieur": true,
+      "systeme_alarme": true
+    }
+  ],
+  "motos": [
+    {
+      "annee": 2013,
+      "marque": "Ducati",
+      "modele": "Monster 1100 Evo",
+      "valeur_des_options": 0,
+      "burinage": "Sherlock",
+      "garage_interieur": true,
+      "systeme_alarme": true
+    },
+    {
+      "annee": 2013,
+      "marque": "Ducati",
+      "modele": "Streetfighter 848",
+      "valeur_des_options": 1000,
+      "burinage": "Sherlock",
+      "garage_interieur": true,
+      "systeme_alarme": true
+    }
+  ],
+  "conducteur": {
+    "date_de_naissance": "1963-11-15",
+    "province": "Québec",
+    "ville": "Sorel-Tracy",
+    "sexe": "M",
+    "date_fin_cours_de_conduite": "1981-03-01",
+    "cours_de_conduite_reconnus_par_CAA": true,
+    "premier_contrat": false,
+    "membre_oiq": true
+  },
+  "duree_contrat": 1,
+  "date_debut": "2013-12-01"
+}

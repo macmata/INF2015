@@ -1,0 +1,32 @@
+{
+  "nombre_de_soumissions": 3,
+  "nombre_de_soumissions_non_assurables": 1,
+  "nombre_de_soumissions_assurables": 2,
+  "nombre_de_soumissions_hommes": 1,
+  "nombre_de_soumissions_femmes": 2,
+  "nombre_de_vehicules": 10,
+  "nombre_de_voitures_assurables": 7,
+  "nombre_de_motos_assurables": 2,
+  "vehicules_par_marque": [
+    {
+      "marque": "Porsche",
+      "nombre": 3
+    },
+    {
+      "marque": "Ferrari",
+      "nombre": 2
+    },
+    {
+      "marque": "Lamborghini",
+      "nombre": 1
+    },
+    {
+      "marque": "W Motors",
+      "nombre": 1
+    },
+    {
+      "marque": "Ducati",
+      "nombre": 2
+    }
+  ]
+}
