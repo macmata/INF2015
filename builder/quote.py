@@ -20,6 +20,10 @@ class Quotes(object):
                 vehicule.year
             ))
             quote.build_quote()
+            logging.debug("Montant annuel : %.2f, assurable: %s" % (
+                quote.amount / 100,
+                quote.assurable
+            ))
             self.quotes.append(quote)
 
 

@@ -9,10 +9,12 @@ from builder.rules import decorators
 class RebateRule(Rule):
     PRIORITY = 4
 
-    
     def rule_ordre_ingenieur(self):
         if self.quote.driver.oiq_member:
-            logging.debug("OIQ member, applying 10% rebate")
+            logging.debug(
+                "OIQ member, applying 10%% rebate (%.2f - 10%% = %.2f)" % (
+                    self.quote.amount, self.quote.amount * 0.9
+            ))
             self.quote.amount = self.quote.amount * 0.9
 
 
