@@ -135,25 +135,23 @@ class Stats:
     def insert_from_quotes(self, quotes):
         quote_id = self.insert_quote(quotes.quotes[0].driver.gender, quotes.assurable)
         for quote in quotes.quotes:
-            if isinstance(quote.vehicule, Car):
-                vehicule_type = "car"
-            else:
-                vechicule_type = "moto"
-            self.insert_vehicule(quote_id, quote.vehicule.make, vehicule_type)
+            self.insert_vehicule(quote_id, quote)
 
     def insert_quote(self, gender, insured):
         cursor = self.connection.cursor()
-
         query = "INSERT INTO quotes (gender, insured) VALUES(?, ?)"
-        cursor.execute(query, (gender, insured))
+        cursor.execute(query, (gender, "1" if insured else "0"))
         self.connection.commit()
         return cursor.lastrowid
 
-    def insert_vehicule(self, quote_id, make, vehicule_type):
+    def insert_vehicule(self, quote_id, quote):
         cursor = self.connection.cursor()
-
+        if isinstance(quote.vehicule, Car):
+            vehicule_type = "car"
+        else:
+            vehicule_type = "moto"
         query = "INSERT INTO vehicules (make, quote_id, type) VALUES(?, ?, ?)"
-        cursor.execute(query, (make, quote_id, vehicule_type))
+        cursor.execute(query, (quote.vehicule.make, quote_id, vehicule_type))
         self.connection.commit()
         return cursor.lastrowid
 
