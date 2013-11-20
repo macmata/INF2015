@@ -11,8 +11,8 @@ class GeneralRules(Rule):
 
     @decorators.moto
     def rule_moto_1000cc(self):
-        if self.quote.vehicule.cc > 1000:
-            logging.debug("Moto cc > 1000")
+        if self.quote.vehicule.cc > 1100:
+            logging.debug("Moto cc > 1100")
             self.quote.amount += 100000
 
     def rule_vehicule_value_more_than_500000(self):
