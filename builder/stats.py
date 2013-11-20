@@ -132,13 +132,14 @@ class Stats:
         return stats
 
     def insert_from_quotes(self, quotes):
-        quote_id = self.insert_quote(quotes.quotes[0].driver.gender, quotes.assurable)
         for quote in quotes.quotes:
-            if isinstance(quote.vehicule, Car):
-                vehicule_type = "car"
-            else:
-                vechicule_type = "moto"
-            self.insert_vehicule(quote_id, quote.vehicule.make, vehicule_type)
+            quote_id = self.insert_quote(quote.driver.gender, quotes.assurable)
+            for quote in quotes.quotes:
+                if isinstance(quote.vehicule, Car):
+                    vehicule_type = "car"
+                else:
+                    vechicule_type = "moto"
+                self.insert_vehicule(quote_id, quote.vehicule.make, vehicule_type)
 
     def insert_quote(self, gender, insured):
         cursor = self.connection.cursor()
