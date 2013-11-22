@@ -3,8 +3,7 @@ import unittest
 import os
 from datetime import datetime, date
 
-from mock import mock_driver
-from builder    import quote
+from tests.mock import mock_driver
 
 class SuccessException(Exception):
     pass
@@ -29,7 +28,25 @@ class Driver(unittest.TestCase):
         )
 
     def test_age(self):
-        assert self.driver.age == 51
-
+        self.driver.birthday = datetime(
+                self.today.year - 51,
+                self.today.month,
+                self.today.day
+        )
+        assert self.driver.age() == 51
+        self.driver.birthday += timedelta(days=1)
+        assert self.driver.age() == 51
+        self.driver.birthday -= timedelta(days=2)
+        assert self.driver.age() == 50
+        
     def test_years_experience(self):
-        assert self.driver.years_experience == 5
+        self.driver.years_experience = datetime(
+                self.today.year - 15,
+                self.today.month,
+                self.today.day
+        )
+        assert self.driver.years_experience() == 15
+        self.driver.years_experience += timedelta(days=1)   
+        assert self.driver.years_experience() == 15
+        self.driver.years_experience -= timedelta(days=2)
+        assert self.driver.years_experience() == 14
