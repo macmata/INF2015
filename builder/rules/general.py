@@ -68,8 +68,8 @@ class GeneralRules(Rule):
             logging.debug("Driver NOT first contract")
 
     def rule_annee_experience(self):
-        if self.quote.driver.years_experience > 15:
-            logging.debug("Driver has more than 15 years of experienc")
+        if self.quote.driver.years_experience >= 15:
+            logging.debug("Driver has 15 years or more of experience")
             self.quote.amount -= 40000
         else:
             logging.debug("Driver NOT 15 years of experience")
