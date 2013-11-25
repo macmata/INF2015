@@ -37,16 +37,16 @@ class Driver(unittest.TestCase):
         self.driver.birthday += timedelta(days=1)
         assert self.driver.age() == 51
         self.driver.birthday -= timedelta(days=2)
-        assert self.driver.age() == 50
-        
+        assert self.driver.age == 50
+
     def test_years_experience(self):
-        self.driver.years_experience = datetime(
+        self.driver.date_lessons = datetime(
                 self.today.year - 15,
                 self.today.month,
                 self.today.day
         )
         assert self.driver.years_experience() == 15
-        self.driver.years_experience += timedelta(days=1)   
+        self.driver.date_lessons += timedelta(days=1)   
         assert self.driver.years_experience() == 15
-        self.driver.years_experience -= timedelta(days=2)
+        self.driver.date_lessons -= timedelta(days=2)
         assert self.driver.years_experience() == 14
