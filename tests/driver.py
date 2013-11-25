@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 import os
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 from tests.mock import mock_driver
 
@@ -33,9 +33,9 @@ class Driver(unittest.TestCase):
                 self.today.month,
                 self.today.day
         )
-        assert self.driver.age() == 51
+        assert self.driver.age == 51 
         self.driver.birthday += timedelta(days=1)
-        assert self.driver.age() == 51
+        assert self.driver.age == 51
         self.driver.birthday -= timedelta(days=2)
         assert self.driver.age == 50
 
@@ -45,8 +45,8 @@ class Driver(unittest.TestCase):
                 self.today.month,
                 self.today.day
         )
-        assert self.driver.years_experience() == 15
+        assert self.driver.years_experience == 15
         self.driver.date_lessons += timedelta(days=1)   
-        assert self.driver.years_experience() == 15
+        assert self.driver.years_experience == 15
         self.driver.date_lessons -= timedelta(days=2)
-        assert self.driver.years_experience() == 14
+        assert self.driver.years_experience == 14
