@@ -109,10 +109,11 @@ class Driver(object):
     @property
     def years_experience(self):
         today = date.today()
-        birthday = self.date_end_of_driving_lessons
+        date_lessons = self.date_end_of_driving_lessons
 
-        if today.month < birthday.month or \
-                (today.month == birthday.month and today.day < birthday.day):
-            return today.year - birthday.year - 1
+        if today.month < date_lessons.month or \
+                (today.month == date_lessons.month and \
+                today.day < date_lessons.day):
+            return today.year - date_lessons.year - 1
         else:
-            return today.year - birthday.year
+            return today.year - date_lessons.year
