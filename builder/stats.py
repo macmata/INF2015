@@ -91,15 +91,22 @@ class Stats:
 
     def get_total_half_million(self):
         cursor = self.connection.cursor()
-        query = "SELECT count(*) FROM vehicules WHERE value >= 500000 and \
-                value <= 1000000"
+        query = """
+            SELECT count(*) FROM vehicules 
+            INNER JOIN quotes ON quotes.id = vehicules.quote_id
+            WHERE value >= 500000 and value <= 1000000 and quotes.insured != 0
+        """
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
 
     def get_total_million(self):
         cursor = self.connection.cursor()
-        query = "SELECT count(*) FROM vehicules WHERE value > 1000000"
+        query = """
+            SELECT count(*) FROM vehicules
+            INNER JOIN quotes ON quotes.id = vehicules.quote_id
+            WHERE value > 1000000 and quotes.insured != 0
+        """
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
