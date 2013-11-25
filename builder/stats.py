@@ -31,8 +31,9 @@ class Stats:
             CREATE TABLE vehicules
             (
                 id INTEGER PRIMARY KEY, make VARCHAR(30),
-                quote_id INTEGER REFERENCES quotes (id), type VARCHAR(4)
-            )
+                quote_id INTEGER REFERENCES quotes (id), type VARCHAR(4),
+                value INTEGER
+           )
         ''')
         cursor.execute('''
             CREATE INDEX vehicules_make_index ON vehicules (make);
@@ -83,6 +84,22 @@ class Stats:
     def get_total_vehicules(self):
         cursor = self.connection.cursor()
         query = "SELECT count(*) FROM vehicules"
+        cursor.execute(query)
+        result = cursor.fetchone()
+        return result[0]
+
+
+    def get_total_demi_million(self):
+        cursor = self.connection.cursor()
+        query = "SELECT count(*) FROM vehicules WHERE value >= 500000 and \
+                value <= 10000000"
+        cursor.execute(query)
+        result = cursor.fetchone()
+        return result[0]
+
+    def get_total_million(self):
+        cursor = self.connection.cursor()
+        query = "SELECT count(*) FROM vehicules WHERE value > 1000000"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
@@ -150,8 +167,13 @@ class Stats:
             vehicule_type = "car"
         else:
             vehicule_type = "moto"
-        query = "INSERT INTO vehicules (make, quote_id, type) VALUES(?, ?, ?)"
-        cursor.execute(query, (quote.vehicule.make, quote_id, vehicule_type))
+        query = "INSERT INTO vehicules (make, quote_id, type, value) VALUES(?,?,?,?)"
+        if not quote.assurable:
+            value = None
+        else:
+            value = quote.vehicule.value
+        cursor.execute(query, (quote.vehicule.make, quote_id, vehicule_type,\
+                value))
         self.connection.commit()
         return cursor.lastrowid
 
@@ -165,6 +187,8 @@ class Stats:
             "nombre_de_soumissions_femmes": self.get_quotes_woman(),
             "nombre_de_vehicules": self.get_total_vehicules(),
             "nombre_de_voitures_assurables": self.get_total_car_insured(),
+            "nombre_vehicules_demi_million": self.get_total_demi_million(),
+            "nombre_vehicules_million": self.get_total_million(),
             "nombre_de_motos_assurables": self.get_total_moto_insured(),
             "vehicules_par_marque": [
                 dict((("marque", r[0]), ("nombre", r[1])))
