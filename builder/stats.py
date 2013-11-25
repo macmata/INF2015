@@ -89,10 +89,10 @@ class Stats:
         return result[0]
 
 
-    def get_total_demi_million(self):
+    def get_total_half_million(self):
         cursor = self.connection.cursor()
         query = "SELECT count(*) FROM vehicules WHERE value >= 500000 and \
-                value <= 10000000"
+                value <= 1000000"
         cursor.execute(query)
         result = cursor.fetchone()
         return result[0]
@@ -187,7 +187,7 @@ class Stats:
             "nombre_de_soumissions_femmes": self.get_quotes_woman(),
             "nombre_de_vehicules": self.get_total_vehicules(),
             "nombre_de_voitures_assurables": self.get_total_car_insured(),
-            "nombre_vehicules_demi_million": self.get_total_demi_million(),
+            "nombre_vehicules_demi_million": self.get_total_half_million(),
             "nombre_vehicules_million": self.get_total_million(),
             "nombre_de_motos_assurables": self.get_total_moto_insured(),
             "vehicules_par_marque": [
